@@ -1,0 +1,38 @@
+# pyproject.toml
+
+[project]
+name = "adwork"
+version = "0.1.0"
+description = "Agentic ad optimization pipeline with forecasting, bandit optimization, and LLM reasoning"
+readme = "README.md"
+requires-python = ">=3.11"
+
+dependencies = [
+    # Core
+    "pydantic>=2.0",
+    "pydantic-settings>=2.0",
+    "python-dotenv>=1.0",
+    
+    # Data
+    "duckdb>=1.0",
+    "pandas>=2.0",
+    "pyarrow>=15.0",
+    
+    # ML (we'll add more in later phases)
+    
+    # LLM
+    "groq>=0.4",
+    "openai>=1.30",
+    
+    # Dashboard
+    "streamlit>=1.35",
+    "plotly>=5.20",
+    
+    # Utilities
+    "loguru>=0.7",
+    "tenacity>=8.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
