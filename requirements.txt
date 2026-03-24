@@ -188,3 +188,5 @@ streamlit>=1.35
 plotly>=5.20
 loguru>=0.7
 tenacity>=8.0
+prophet>=1.1
+statsmodels>=0.14

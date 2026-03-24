@@ -215,3 +215,94 @@ def has_data() -> bool:
     conn = get_db()
     result = conn.execute("SELECT COUNT(*) FROM daily_metrics").fetchone()
     return result[0] > 0 if result else False
+
+# src/adwork/db/queries.py  — ADD these functions at the bottom of the existing file
+
+
+def store_forecast_results(campaign_id: str, metric: str, forecast_df: pd.DataFrame) -> int:
+    """
+    Store forecast results in DuckDB.
+    Replaces any existing forecast for this campaign/metric.
+    Only stores the future (forecasted) rows.
+    
+    Returns number of rows stored.
+    """
+    conn = get_db()
+
+    # Clear old forecasts for this campaign/metric
+    conn.execute(
+        "DELETE FROM forecasts WHERE campaign_id = ? AND metric = ?",
+        [campaign_id, metric],
+    )
+
+    future = forecast_df[forecast_df["is_forecast"]].copy()
+    rows = 0
+
+    for _, row in future.iterrows():
+        forecast_date = row["date"]
+        # Handle both Timestamp and date objects
+        if hasattr(forecast_date, "date"):
+            forecast_date = forecast_date.date()
+
+        conn.execute("""
+            INSERT INTO forecasts (campaign_id, forecast_date, metric, predicted_value, lower_bound, upper_bound)
+            VALUES (?, ?, ?, ?, ?, ?)
+        """, [
+            campaign_id,
+            forecast_date,
+            metric,
+            float(row["predicted"]),
+            float(row["lower"]),
+            float(row["upper"]),
+        ])
+        rows += 1
+
+    logger.info(f"Stored {rows} forecast rows for {campaign_id}/{metric}")
+    return rows
+
+
+def get_stored_forecasts(campaign_id: str | None = None, metric: str | None = None) -> pd.DataFrame:
+    """Get stored forecasts, optionally filtered."""
+    conn = get_db()
+
+    query = "SELECT * FROM forecasts WHERE 1=1"
+    params = []
+
+    if campaign_id:
+        query += " AND campaign_id = ?"
+        params.append(campaign_id)
+    if metric:
+        query += " AND metric = ?"
+        params.append(metric)
+
+    query += " ORDER BY campaign_id, metric, forecast_date"
+    return conn.execute(query, params).df()
+
+
+def get_forecast_summary() -> pd.DataFrame:
+    """Get a summary of all stored forecasts."""
+    conn = get_db()
+
+    return conn.execute("""
+        SELECT 
+            f.campaign_id,
+            c.campaign_name,
+            c.platform,
+            f.metric,
+            COUNT(*) as forecast_days,
+            MIN(f.forecast_date) as first_date,
+            MAX(f.forecast_date) as last_date,
+            ROUND(AVG(f.predicted_value), 1) as avg_predicted,
+            MAX(f.created_at) as generated_at
+        FROM forecasts f
+        JOIN campaigns c ON f.campaign_id = c.campaign_id
+        GROUP BY f.campaign_id, c.campaign_name, c.platform, f.metric
+        ORDER BY c.platform, c.campaign_name, f.metric
+    """).df()
+
+
+def has_forecasts() -> bool:
+    """Check if any forecasts have been generated."""
+    conn = get_db()
+    result = conn.execute("SELECT COUNT(*) FROM forecasts").fetchone()
+    return result[0] > 0 if result else False

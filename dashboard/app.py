@@ -74,7 +74,12 @@ try:
         get_daily_roas,
         get_campaign_summary,
         get_trends,
+        get_all_campaigns,               
+        get_daily_metrics_for_campaign,   
         has_data,
+        has_forecasts,                    
+        get_forecast_summary,             
+        store_forecast_results,           
     )
     db = get_db()
     db_connected = True
@@ -132,6 +137,32 @@ if not data_loaded:
             st.rerun()
     except Exception:
         pass  # Seeding failed — user will see the "no data" message
+
+# --- Helper for matching campaigns to trends keywords ---
+def _match_campaign_trends(campaign_name: str, trends_df) -> pd.DataFrame | None:
+    """Match a campaign to relevant Google Trends keywords."""
+    if trends_df is None or trends_df.empty:
+        return None
+
+    name_lower = campaign_name.lower()
+    keyword_matches = {
+        "laptop": ["laptop"],
+        "headphone": ["headphones"],
+        "monitor": ["computer monitor"],
+        "earbud": ["wireless earbuds"],
+        "keyboard": ["gaming keyboard"],
+    }
+
+    matched = []
+    for trigger, keywords in keyword_matches.items():
+        if trigger in name_lower:
+            matched.extend(keywords)
+
+    if not matched:
+        matched = trends_df["keyword"].unique().tolist()[:3]
+
+    filtered = trends_df[trends_df["keyword"].isin(matched)]
+    return filtered if not filtered.empty else None
 
 
 # --- Sidebar ---
@@ -270,29 +301,168 @@ if page == "📊 Overview":
 
 
 elif page == "📈 Forecasts":
-    st.title("📈 Demand Forecasts & Trends")
+    st.title("📈 Demand Forecasts")
 
     if not data_loaded:
         no_data_message()
     else:
-        st.subheader("📉 Google Trends — Market Signals")
-        trends_df = get_trends()
+        # --- Campaign and metric selectors ---
+        campaigns_df = get_all_campaigns() if db_connected else pd.DataFrame()
 
-        if not trends_df.empty:
-            st.plotly_chart(trends_chart(trends_df), use_container_width=True)
-            st.caption(
-                "Google Trends data shows relative search interest (0–100). "
-                "These signals feed into the demand forecasting model in Phase 2."
+        col_sel1, col_sel2, col_sel3 = st.columns([3, 2, 2])
+
+        with col_sel1:
+            campaign_options = dict(zip(
+                campaigns_df["campaign_id"],
+                campaigns_df["campaign_name"],
+            )) if not campaigns_df.empty else {}
+
+            selected_campaign_id = st.selectbox(
+                "Campaign",
+                options=list(campaign_options.keys()),
+                format_func=lambda x: campaign_options.get(x, x),
             )
-        else:
-            st.info("No Google Trends data loaded. Trends are optional — the dashboard works without them.")
+
+        with col_sel2:
+            selected_metric = st.selectbox(
+                "Metric",
+                options=["clicks", "conversions", "spend", "revenue"],
+            )
+
+        with col_sel3:
+            st.markdown("<br>", unsafe_allow_html=True)
+            generate_btn = st.button(
+                "🔮 Generate Forecast", type="primary", use_container_width=True,
+            )
 
         st.divider()
-        st.subheader("🔮 Demand Forecasts")
-        st.info("📈 Time-series forecasting (Prophet) will be built in Phase 2.")
 
-        st.subheader("📅 Seasonality Calendar")
-        st.info("Heatmap calendar showing when to push budget harder. Coming in Phase 2.")
+        # --- Generate forecast on button click ---
+        if generate_btn and selected_campaign_id:
+            with st.spinner(f"Training forecast model for {campaign_options.get(selected_campaign_id, '')}..."):
+                try:
+                    from adwork.models.forecaster import DemandForecaster
+                    from adwork.db.queries import (
+                        get_daily_metrics_for_campaign,
+                        store_forecast_results,
+                    )
+
+                    hist = get_daily_metrics_for_campaign(selected_campaign_id)
+                    trends_data = get_trends()
+
+                    # Match trends to campaign
+                    campaign_name = campaign_options.get(selected_campaign_id, "")
+                    matched_trends = _match_campaign_trends(campaign_name, trends_data)
+
+                    forecaster = DemandForecaster()
+                    result = forecaster.run(
+                        historical_df=hist,
+                        metric=selected_metric,
+                        campaign_id=selected_campaign_id,
+                        trends_df=matched_trends,
+                    )
+
+                    # Store in DB
+                    store_forecast_results(
+                        selected_campaign_id, selected_metric, result["forecast"],
+                    )
+
+                    # Save to session state so we can display it
+                    st.session_state["forecast_result"] = result
+                    st.success(
+                        f"✅ Forecast generated using **{result['engine'].title()}** engine | "
+                        f"MAPE: {result['evaluation']['mape']:.1f}%"
+                    )
+
+                except Exception as e:
+                    st.error(f"❌ Forecast failed: {e}")
+                    st.session_state.pop("forecast_result", None)
+
+        # --- Display results ---
+        result = st.session_state.get("forecast_result")
+
+        if result and result.get("campaign_id") == selected_campaign_id and result.get("metric") == selected_metric:
+
+            # Import chart functions
+            from components.charts import (
+                forecast_chart,
+                backtest_chart,
+                weekly_seasonality_chart,
+                seasonality_heatmap,
+                evaluation_metrics_display,
+            )
+
+            # Evaluation metrics row
+            st.subheader("📊 Model Evaluation (Backtest)")
+            eval_display = evaluation_metrics_display(result["evaluation"])
+
+            mcols = st.columns(4)
+            for i, (name, info) in enumerate(eval_display.items()):
+                with mcols[i]:
+                    icon = "✅" if info["good"] else "⚠️"
+                    st.metric(label=f"{icon} {name}", value=info["value"], help=info["help"])
+
+            st.divider()
+
+            # Forecast chart
+            st.subheader("🔮 Forecast")
+            st.plotly_chart(
+                forecast_chart(result["forecast"], selected_metric),
+                use_container_width=True,
+            )
+
+            # Backtest chart
+            col_bt, col_season = st.columns(2)
+
+            with col_bt:
+                st.plotly_chart(
+                    backtest_chart(result["backtest"], selected_metric),
+                    use_container_width=True,
+                )
+
+            with col_season:
+                st.plotly_chart(
+                    weekly_seasonality_chart(result.get("components", {})),
+                    use_container_width=True,
+                )
+
+            # Seasonality heatmap
+            st.subheader("📅 Seasonality Calendar")
+            hist_for_heatmap = get_daily_metrics_for_campaign(selected_campaign_id)
+            st.plotly_chart(
+                seasonality_heatmap(hist_for_heatmap, selected_metric),
+                use_container_width=True,
+            )
+
+        else:
+            # No forecast generated yet — show stored forecasts or prompt
+            from adwork.db.queries import has_forecasts, get_forecast_summary
+
+            if has_forecasts():
+                st.subheader("📋 Stored Forecasts")
+                st.caption("Click **Generate Forecast** above to create a new forecast with full evaluation.")
+                summary = get_forecast_summary()
+                st.dataframe(summary, use_container_width=True, hide_index=True)
+            else:
+                st.info(
+                    "👆 Select a campaign and metric above, then click **Generate Forecast** "
+                    "to train a Prophet model and see predictions with evaluation metrics."
+                )
+
+        # --- Google Trends section ---
+        st.divider()
+        st.subheader("📉 Google Trends — Market Signals")
+        trends_data = get_trends()
+
+        if not trends_data.empty:
+            from components.charts import trends_chart
+            st.plotly_chart(trends_chart(trends_data), use_container_width=True)
+            st.caption(
+                "Search interest data feeds into the forecasting model as an external regressor, "
+                "improving predictions by capturing market demand shifts."
+            )
+        else:
+            st.info("No Google Trends data loaded. Trends are optional — forecasting works without them.")
 
 
 elif page == "🎯 Recommendations":
