@@ -38,17 +38,17 @@ Dashboard with explainable recommendations
 
 ## Quick Start
 
-# Clone
+### Clone
 git clone https://github.com/YOUR_USERNAME/ad-work.git
 cd ad-work
 
-# Setup
+### Setup
 make setup
 
-# Add your Groq API key to .env
-# Get one free at https://console.groq.com
+### Add your Groq API key to .env
+### Get one free at https://console.groq.com
 
-# Run
+### Run
 make run
 
 ## Project Status
