@@ -9,7 +9,7 @@ advertising recommendations.
 > Upload your campaign data → Get demand forecasts → Receive bid and budget 
 > recommendations with plain-English reasoning attached to every decision.
 
-🔗 **[Live Demo](https://your-streamlit-url.streamlit.app)** (coming soon)
+🔗 **[Live Demo](https://ad-work-lrikjcynfa8feptsuauuoz.streamlit.app/)** (app built, currently adding functionalities)
 
 ---
 
