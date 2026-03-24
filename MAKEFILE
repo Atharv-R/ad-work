@@ -1,0 +1,28 @@
+# Makefile
+
+.PHONY: setup run test clean
+
+# First-time setup
+setup:
+	uv sync
+	cp -n .env.example .env || true
+	@echo "✅ Setup complete. Edit .env with your API keys."
+
+# Run the dashboard
+run:
+	uv run streamlit run dashboard/app.py
+
+# Run tests
+test:
+	uv run pytest tests/ -v
+
+# Clean generated files
+clean:
+	rm -rf data/adwork.duckdb
+	rm -rf __pycache__ src/adwork/__pycache__
+	find . -type d -name __pycache__ -exec rm -rf {} + 2>/dev/null || true
+
+# Format code (add ruff later)
+lint:
+	uv run ruff check src/ dashboard/ tests/
+	uv run ruff format src/ dashboard/ tests/
