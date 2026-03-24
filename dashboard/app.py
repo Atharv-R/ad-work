@@ -9,12 +9,15 @@ Run with:
     streamlit run dashboard/app.py
 """
 
+
+
 import streamlit as st
 import sys
 from pathlib import Path
 
-# Add src to path so we can import adwork
-sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
+# Add src/ to Python path so 'adwork' package is importable
+# This works both locally and on Streamlit Cloud
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "src"))
 
 
 # --- Page Config (must be first Streamlit call) ---
