@@ -17,8 +17,10 @@ dependencies = [
     "duckdb>=1.0",
     "pandas>=2.0",
     "pyarrow>=15.0",
+    "numpy>=1.26",
     
     # ML (we'll add more in later phases)
+    "pytrends>=4.9",
     
     # LLM
     "groq>=0.4",

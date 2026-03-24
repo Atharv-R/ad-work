@@ -1,0 +1,361 @@
+campaign_id,campaign_name,platform,date,impressions,clicks,conversions,spend,revenue
+ggl_brand_001,Google - Brand Search,google,2025-04-01,2688,289,32,165.0,4331.75
+ggl_brand_001,Google - Brand Search,google,2025-04-02,2353,286,28,165.0,4020.86
+ggl_brand_001,Google - Brand Search,google,2025-04-03,2949,382,44,165.0,6754.28
+ggl_brand_001,Google - Brand Search,google,2025-04-04,2685,335,38,165.0,5685.77
+ggl_brand_001,Google - Brand Search,google,2025-04-05,2225,249,24,165.0,3522.9
+ggl_brand_001,Google - Brand Search,google,2025-04-06,2075,263,28,165.0,4290.47
+ggl_brand_001,Google - Brand Search,google,2025-04-07,2945,341,30,165.0,4638.6
+ggl_brand_001,Google - Brand Search,google,2025-04-08,2882,344,30,165.0,4646.38
+ggl_brand_001,Google - Brand Search,google,2025-04-09,2803,357,37,165.0,5582.38
+ggl_brand_001,Google - Brand Search,google,2025-04-10,2823,371,41,165.0,6170.78
+ggl_brand_001,Google - Brand Search,google,2025-04-11,2970,382,36,165.0,5273.0
+ggl_brand_001,Google - Brand Search,google,2025-04-12,2158,254,22,165.0,3459.77
+ggl_brand_001,Google - Brand Search,google,2025-04-13,1860,218,24,165.0,3728.02
+ggl_brand_001,Google - Brand Search,google,2025-04-14,2693,315,36,165.0,5348.35
+ggl_brand_001,Google - Brand Search,google,2025-04-15,2390,257,28,165.0,4229.91
+ggl_brand_001,Google - Brand Search,google,2025-04-16,2811,327,36,165.0,5316.48
+ggl_brand_001,Google - Brand Search,google,2025-04-17,2896,329,31,165.0,4371.97
+ggl_brand_001,Google - Brand Search,google,2025-04-18,3037,353,38,165.0,5827.26
+ggl_brand_001,Google - Brand Search,google,2025-04-19,2412,291,29,165.0,3983.0
+ggl_brand_001,Google - Brand Search,google,2025-04-20,1914,203,21,134.03,3007.39
+ggl_brand_001,Google - Brand Search,google,2025-04-21,2472,341,38,165.0,5433.92
+ggl_brand_001,Google - Brand Search,google,2025-04-22,2636,292,33,165.0,4522.49
+ggl_brand_001,Google - Brand Search,google,2025-04-23,2775,348,27,165.0,4064.61
+ggl_brand_001,Google - Brand Search,google,2025-04-24,2694,338,42,165.0,6224.6
+ggl_brand_001,Google - Brand Search,google,2025-04-25,2702,337,41,165.0,6406.8
+ggl_brand_001,Google - Brand Search,google,2025-04-26,2372,334,30,165.0,4291.52
+ggl_brand_001,Google - Brand Search,google,2025-04-27,2112,224,22,165.0,3057.32
+ggl_brand_001,Google - Brand Search,google,2025-04-28,2358,299,39,165.0,6702.3
+ggl_brand_001,Google - Brand Search,google,2025-04-29,2787,309,33,165.0,4748.8
+ggl_brand_001,Google - Brand Search,google,2025-04-30,2611,302,36,165.0,5442.4
+ggl_brand_001,Google - Brand Search,google,2025-05-01,2796,309,29,165.0,4338.3
+ggl_brand_001,Google - Brand Search,google,2025-05-02,3383,423,40,165.0,5644.52
+ggl_brand_001,Google - Brand Search,google,2025-05-03,2142,246,22,165.0,3438.35
+ggl_brand_001,Google - Brand Search,google,2025-05-04,2036,275,27,165.0,4041.75
+ggl_brand_001,Google - Brand Search,google,2025-05-05,2449,317,26,165.0,3650.8
+ggl_brand_001,Google - Brand Search,google,2025-05-06,2754,396,40,165.0,6085.75
+ggl_brand_001,Google - Brand Search,google,2025-05-07,3003,381,46,165.0,7047.92
+ggl_brand_001,Google - Brand Search,google,2025-05-08,3202,405,33,165.0,5358.6
+ggl_brand_001,Google - Brand Search,google,2025-05-09,3395,415,52,165.0,7368.25
+ggl_brand_001,Google - Brand Search,google,2025-05-10,2170,287,29,165.0,4314.45
+ggl_brand_001,Google - Brand Search,google,2025-05-11,2269,323,36,165.0,4846.45
+ggl_brand_001,Google - Brand Search,google,2025-05-12,2592,296,26,165.0,3834.85
+ggl_brand_001,Google - Brand Search,google,2025-05-13,2935,318,30,165.0,4426.27
+ggl_brand_001,Google - Brand Search,google,2025-05-14,2957,390,39,165.0,5646.44
+ggl_brand_001,Google - Brand Search,google,2025-05-15,2819,361,31,165.0,4671.04
+ggl_brand_001,Google - Brand Search,google,2025-05-16,3059,480,43,165.0,6357.32
+ggl_brand_001,Google - Brand Search,google,2025-05-17,2077,245,30,165.0,4335.96
+ggl_brand_001,Google - Brand Search,google,2025-05-18,2108,207,18,152.22,2628.53
+ggl_brand_001,Google - Brand Search,google,2025-05-19,2436,303,24,165.0,3983.26
+ggl_brand_001,Google - Brand Search,google,2025-05-20,2470,276,41,165.0,5789.74
+ggl_brand_001,Google - Brand Search,google,2025-05-21,2675,348,31,165.0,4592.97
+ggl_brand_001,Google - Brand Search,google,2025-05-22,3069,403,41,165.0,5727.22
+ggl_brand_001,Google - Brand Search,google,2025-05-23,2966,364,35,165.0,5373.78
+ggl_brand_001,Google - Brand Search,google,2025-05-24,3201,410,43,165.0,6450.03
+ggl_brand_001,Google - Brand Search,google,2025-05-25,2638,344,47,165.0,7604.61
+ggl_brand_001,Google - Brand Search,google,2025-05-26,3398,397,49,165.0,7446.56
+ggl_brand_001,Google - Brand Search,google,2025-05-27,2878,301,33,165.0,4675.17
+ggl_brand_001,Google - Brand Search,google,2025-05-28,2669,347,35,165.0,5222.83
+ggl_brand_001,Google - Brand Search,google,2025-05-29,2850,367,23,165.0,3409.14
+ggl_brand_001,Google - Brand Search,google,2025-05-30,3087,403,31,165.0,4726.26
+ggl_brand_001,Google - Brand Search,google,2025-05-31,2714,292,29,165.0,4336.66
+ggl_brand_001,Google - Brand Search,google,2025-06-01,2064,253,29,165.0,4726.78
+ggl_brand_001,Google - Brand Search,google,2025-06-02,2905,386,43,165.0,6717.03
+ggl_brand_001,Google - Brand Search,google,2025-06-03,2724,349,42,165.0,5928.83
+ggl_brand_001,Google - Brand Search,google,2025-06-04,2967,371,43,165.0,7037.16
+ggl_brand_001,Google - Brand Search,google,2025-06-05,3099,333,29,165.0,4237.27
+ggl_brand_001,Google - Brand Search,google,2025-06-06,3435,467,42,165.0,6310.33
+ggl_brand_001,Google - Brand Search,google,2025-06-07,2167,258,32,165.0,4946.1
+ggl_brand_001,Google - Brand Search,google,2025-06-08,1853,244,27,165.0,4377.28
+ggl_brand_001,Google - Brand Search,google,2025-06-09,2231,269,21,165.0,3382.46
+ggl_brand_001,Google - Brand Search,google,2025-06-10,2891,402,48,165.0,7584.65
+ggl_brand_001,Google - Brand Search,google,2025-06-11,2863,376,35,165.0,5211.27
+ggl_brand_001,Google - Brand Search,google,2025-06-12,2912,388,34,165.0,5068.12
+ggl_brand_001,Google - Brand Search,google,2025-06-13,3450,411,45,165.0,7034.98
+ggl_brand_001,Google - Brand Search,google,2025-06-14,2418,353,42,165.0,6474.55
+ggl_brand_001,Google - Brand Search,google,2025-06-15,2709,342,45,165.0,6595.53
+ggl_brand_001,Google - Brand Search,google,2025-06-16,2713,396,34,165.0,4691.67
+ggl_brand_001,Google - Brand Search,google,2025-06-17,2647,357,40,165.0,5576.17
+ggl_brand_001,Google - Brand Search,google,2025-06-18,2306,299,34,165.0,5279.0
+ggl_brand_001,Google - Brand Search,google,2025-06-19,3000,417,48,165.0,6946.32
+ggl_brand_001,Google - Brand Search,google,2025-06-20,3060,404,41,165.0,6310.26
+ggl_brand_001,Google - Brand Search,google,2025-06-21,2380,305,23,165.0,3226.36
+ggl_brand_001,Google - Brand Search,google,2025-06-22,2026,201,24,138.48,3548.72
+ggl_brand_001,Google - Brand Search,google,2025-06-23,2750,396,42,165.0,6726.38
+ggl_brand_001,Google - Brand Search,google,2025-06-24,2866,341,28,165.0,4013.49
+ggl_brand_001,Google - Brand Search,google,2025-06-25,2766,389,33,165.0,5047.22
+ggl_brand_001,Google - Brand Search,google,2025-06-26,2737,373,29,165.0,4551.9
+ggl_brand_001,Google - Brand Search,google,2025-06-27,2973,367,35,165.0,5362.32
+ggl_brand_001,Google - Brand Search,google,2025-06-28,2410,324,42,165.0,6192.02
+ggl_brand_001,Google - Brand Search,google,2025-06-29,2040,295,37,165.0,5656.39
+ggl_laptops_002,Google - Search (Laptops),google,2025-04-01,6753,279,10,330.0,8027.75
+ggl_laptops_002,Google - Search (Laptops),google,2025-04-02,6922,307,9,330.0,7190.69
+ggl_laptops_002,Google - Search (Laptops),google,2025-04-03,7351,270,5,330.0,3776.52
+ggl_laptops_002,Google - Search (Laptops),google,2025-04-04,7233,282,9,330.0,6853.65
+ggl_laptops_002,Google - Search (Laptops),google,2025-04-05,6048,233,7,330.0,5773.37
+ggl_laptops_002,Google - Search (Laptops),google,2025-04-06,5415,241,7,330.0,6327.35
+ggl_laptops_002,Google - Search (Laptops),google,2025-04-07,6675,308,10,330.0,7977.29
+ggl_laptops_002,Google - Search (Laptops),google,2025-04-08,6802,253,6,330.0,4959.74
+ggl_laptops_002,Google - Search (Laptops),google,2025-04-09,7506,314,10,330.0,7876.53
+ggl_laptops_002,Google - Search (Laptops),google,2025-04-10,7788,257,5,330.0,3700.99
+ggl_laptops_002,Google - Search (Laptops),google,2025-04-11,8414,372,8,330.0,5451.35
+ggl_laptops_002,Google - Search (Laptops),google,2025-04-12,5687,287,8,330.0,6548.83
+ggl_laptops_002,Google - Search (Laptops),google,2025-04-13,4922,194,5,330.0,4158.16
+ggl_laptops_002,Google - Search (Laptops),google,2025-04-14,6809,296,10,330.0,8651.57
+ggl_laptops_002,Google - Search (Laptops),google,2025-04-15,6427,239,7,330.0,5993.07
+ggl_laptops_002,Google - Search (Laptops),google,2025-04-16,6731,315,10,330.0,8625.89
+ggl_laptops_002,Google - Search (Laptops),google,2025-04-17,7109,263,8,330.0,5898.96
+ggl_laptops_002,Google - Search (Laptops),google,2025-04-18,8056,312,6,330.0,4611.22
+ggl_laptops_002,Google - Search (Laptops),google,2025-04-19,5197,195,5,330.0,3949.32
+ggl_laptops_002,Google - Search (Laptops),google,2025-04-20,5610,235,8,330.0,6612.05
+ggl_laptops_002,Google - Search (Laptops),google,2025-04-21,6901,300,12,330.0,9558.19
+ggl_laptops_002,Google - Search (Laptops),google,2025-04-22,6867,261,6,330.0,4586.69
+ggl_laptops_002,Google - Search (Laptops),google,2025-04-23,7010,299,8,330.0,6688.06
+ggl_laptops_002,Google - Search (Laptops),google,2025-04-24,7834,318,10,330.0,8075.19
+ggl_laptops_002,Google - Search (Laptops),google,2025-04-25,6846,281,7,330.0,5653.16
+ggl_laptops_002,Google - Search (Laptops),google,2025-04-26,5362,252,7,330.0,5701.77
+ggl_laptops_002,Google - Search (Laptops),google,2025-04-27,4633,170,4,330.0,3314.3
+ggl_laptops_002,Google - Search (Laptops),google,2025-04-28,7843,288,9,330.0,7780.0
+ggl_laptops_002,Google - Search (Laptops),google,2025-04-29,6416,274,6,330.0,4492.54
+ggl_laptops_002,Google - Search (Laptops),google,2025-04-30,6880,272,8,330.0,5832.01
+ggl_laptops_002,Google - Search (Laptops),google,2025-05-01,7779,306,8,330.0,6196.28
+ggl_laptops_002,Google - Search (Laptops),google,2025-05-02,8161,367,8,330.0,6572.17
+ggl_laptops_002,Google - Search (Laptops),google,2025-05-03,5623,241,8,330.0,6141.89
+ggl_laptops_002,Google - Search (Laptops),google,2025-05-04,5203,234,6,330.0,5148.28
+ggl_laptops_002,Google - Search (Laptops),google,2025-05-05,6590,277,7,330.0,5731.92
+ggl_laptops_002,Google - Search (Laptops),google,2025-05-06,6876,277,7,330.0,4924.42
+ggl_laptops_002,Google - Search (Laptops),google,2025-05-07,8120,429,9,330.0,7088.23
+ggl_laptops_002,Google - Search (Laptops),google,2025-05-08,7374,305,10,330.0,8209.8
+ggl_laptops_002,Google - Search (Laptops),google,2025-05-09,6956,314,10,330.0,7865.07
+ggl_laptops_002,Google - Search (Laptops),google,2025-05-10,6121,275,8,330.0,6275.05
+ggl_laptops_002,Google - Search (Laptops),google,2025-05-11,6722,280,7,330.0,5764.43
+ggl_laptops_002,Google - Search (Laptops),google,2025-05-12,7076,274,10,330.0,7870.48
+ggl_laptops_002,Google - Search (Laptops),google,2025-05-13,6272,266,8,330.0,6373.89
+ggl_laptops_002,Google - Search (Laptops),google,2025-05-14,6273,223,6,330.0,4184.46
+ggl_laptops_002,Google - Search (Laptops),google,2025-05-15,8100,354,9,330.0,7500.89
+ggl_laptops_002,Google - Search (Laptops),google,2025-05-16,8202,433,14,330.0,11106.52
+ggl_laptops_002,Google - Search (Laptops),google,2025-05-17,6662,302,8,330.0,6260.67
+ggl_laptops_002,Google - Search (Laptops),google,2025-05-18,5687,262,7,330.0,5481.06
+ggl_laptops_002,Google - Search (Laptops),google,2025-05-19,7143,298,6,330.0,4601.59
+ggl_laptops_002,Google - Search (Laptops),google,2025-05-20,6868,226,6,330.0,4751.73
+ggl_laptops_002,Google - Search (Laptops),google,2025-05-21,7990,335,10,330.0,8419.67
+ggl_laptops_002,Google - Search (Laptops),google,2025-05-22,7096,277,8,330.0,6607.2
+ggl_laptops_002,Google - Search (Laptops),google,2025-05-23,8049,371,11,330.0,8707.3
+ggl_laptops_002,Google - Search (Laptops),google,2025-05-24,7125,259,7,330.0,5313.76
+ggl_laptops_002,Google - Search (Laptops),google,2025-05-25,7408,356,8,330.0,6104.68
+ggl_laptops_002,Google - Search (Laptops),google,2025-05-26,9823,437,11,330.0,8307.4
+ggl_laptops_002,Google - Search (Laptops),google,2025-05-27,7663,334,10,330.0,8111.26
+ggl_laptops_002,Google - Search (Laptops),google,2025-05-28,7502,351,8,330.0,5680.87
+ggl_laptops_002,Google - Search (Laptops),google,2025-05-29,8394,408,9,330.0,7235.65
+ggl_laptops_002,Google - Search (Laptops),google,2025-05-30,8742,449,13,330.0,9935.57
+ggl_laptops_002,Google - Search (Laptops),google,2025-05-31,6382,269,11,330.0,9585.47
+ggl_laptops_002,Google - Search (Laptops),google,2025-06-01,6578,260,9,330.0,7359.32
+ggl_laptops_002,Google - Search (Laptops),google,2025-06-02,7814,363,13,330.0,10577.21
+ggl_laptops_002,Google - Search (Laptops),google,2025-06-03,6404,282,7,330.0,6070.91
+ggl_laptops_002,Google - Search (Laptops),google,2025-06-04,8514,423,16,330.0,12807.71
+ggl_laptops_002,Google - Search (Laptops),google,2025-06-05,7974,311,10,330.0,7478.94
+ggl_laptops_002,Google - Search (Laptops),google,2025-06-06,8181,356,13,330.0,10405.95
+ggl_laptops_002,Google - Search (Laptops),google,2025-06-07,6566,290,8,330.0,6351.66
+ggl_laptops_002,Google - Search (Laptops),google,2025-06-08,5725,220,7,330.0,5099.72
+ggl_laptops_002,Google - Search (Laptops),google,2025-06-09,7102,344,13,330.0,10420.23
+ggl_laptops_002,Google - Search (Laptops),google,2025-06-10,7031,277,9,330.0,7663.44
+ggl_laptops_002,Google - Search (Laptops),google,2025-06-11,8216,358,11,330.0,8895.58
+ggl_laptops_002,Google - Search (Laptops),google,2025-06-12,7794,325,9,330.0,6973.9
+ggl_laptops_002,Google - Search (Laptops),google,2025-06-13,8500,362,12,330.0,9053.07
+ggl_laptops_002,Google - Search (Laptops),google,2025-06-14,6249,317,7,330.0,5078.68
+ggl_laptops_002,Google - Search (Laptops),google,2025-06-15,6160,274,10,330.0,6930.87
+ggl_laptops_002,Google - Search (Laptops),google,2025-06-16,7470,384,12,330.0,9238.61
+ggl_laptops_002,Google - Search (Laptops),google,2025-06-17,7068,305,13,330.0,10225.31
+ggl_laptops_002,Google - Search (Laptops),google,2025-06-18,8785,393,12,330.0,9662.91
+ggl_laptops_002,Google - Search (Laptops),google,2025-06-19,8231,485,14,330.0,11742.64
+ggl_laptops_002,Google - Search (Laptops),google,2025-06-20,8129,346,11,330.0,8922.57
+ggl_laptops_002,Google - Search (Laptops),google,2025-06-21,6568,304,7,330.0,5786.64
+ggl_laptops_002,Google - Search (Laptops),google,2025-06-22,5717,219,7,330.0,5405.82
+ggl_laptops_002,Google - Search (Laptops),google,2025-06-23,7795,303,9,330.0,7183.23
+ggl_laptops_002,Google - Search (Laptops),google,2025-06-24,7856,318,10,330.0,7243.22
+ggl_laptops_002,Google - Search (Laptops),google,2025-06-25,6489,292,9,330.0,7189.93
+ggl_laptops_002,Google - Search (Laptops),google,2025-06-26,8218,406,11,330.0,8318.94
+ggl_laptops_002,Google - Search (Laptops),google,2025-06-27,8645,439,9,330.0,6586.56
+ggl_laptops_002,Google - Search (Laptops),google,2025-06-28,6180,264,9,330.0,7087.77
+ggl_laptops_002,Google - Search (Laptops),google,2025-06-29,6788,286,10,330.0,7385.74
+ggl_headphones_003,Google - Search (Headphones),google,2025-04-01,5413,246,12,220.00000000000003,1395.2
+ggl_headphones_003,Google - Search (Headphones),google,2025-04-02,6118,269,10,220.00000000000003,1135.43
+ggl_headphones_003,Google - Search (Headphones),google,2025-04-03,5174,242,8,220.00000000000003,1007.4
+ggl_headphones_003,Google - Search (Headphones),google,2025-04-04,6291,324,15,220.00000000000003,1630.73
+ggl_headphones_003,Google - Search (Headphones),google,2025-04-05,4394,180,6,220.00000000000003,714.02
+ggl_headphones_003,Google - Search (Headphones),google,2025-04-06,4902,217,8,220.00000000000003,963.63
+ggl_headphones_003,Google - Search (Headphones),google,2025-04-07,5017,236,11,220.00000000000003,1340.43
+ggl_headphones_003,Google - Search (Headphones),google,2025-04-08,5516,220,10,220.00000000000003,1251.96
+ggl_headphones_003,Google - Search (Headphones),google,2025-04-09,5360,263,12,220.00000000000003,1460.83
+ggl_headphones_003,Google - Search (Headphones),google,2025-04-10,5367,250,10,220.00000000000003,981.1
+ggl_headphones_003,Google - Search (Headphones),google,2025-04-11,4981,235,7,220.00000000000003,810.09
+ggl_headphones_003,Google - Search (Headphones),google,2025-04-12,5020,216,8,220.00000000000003,979.59
+ggl_headphones_003,Google - Search (Headphones),google,2025-04-13,4828,221,8,220.00000000000003,958.29
+ggl_headphones_003,Google - Search (Headphones),google,2025-04-14,4483,197,9,220.00000000000003,1081.87
+ggl_headphones_003,Google - Search (Headphones),google,2025-04-15,5167,231,10,220.00000000000003,1140.02
+ggl_headphones_003,Google - Search (Headphones),google,2025-04-16,4848,244,7,220.00000000000003,858.64
+ggl_headphones_003,Google - Search (Headphones),google,2025-04-17,5749,220,9,220.00000000000003,1100.22
+ggl_headphones_003,Google - Search (Headphones),google,2025-04-18,6092,237,9,220.00000000000003,1053.93
+ggl_headphones_003,Google - Search (Headphones),google,2025-04-19,4856,253,12,220.00000000000003,1432.1
+ggl_headphones_003,Google - Search (Headphones),google,2025-04-20,4411,215,8,220.00000000000003,999.54
+ggl_headphones_003,Google - Search (Headphones),google,2025-04-21,5026,211,9,220.00000000000003,1080.16
+ggl_headphones_003,Google - Search (Headphones),google,2025-04-22,5449,264,11,220.00000000000003,1345.0
+ggl_headphones_003,Google - Search (Headphones),google,2025-04-23,4783,248,7,220.00000000000003,796.11
+ggl_headphones_003,Google - Search (Headphones),google,2025-04-24,5108,233,8,220.00000000000003,989.75
+ggl_headphones_003,Google - Search (Headphones),google,2025-04-25,5977,280,12,220.00000000000003,1288.23
+ggl_headphones_003,Google - Search (Headphones),google,2025-04-26,4423,157,6,220.00000000000003,757.64
+ggl_headphones_003,Google - Search (Headphones),google,2025-04-27,4714,219,9,220.00000000000003,1051.49
+ggl_headphones_003,Google - Search (Headphones),google,2025-04-28,5066,253,11,220.00000000000003,1364.71
+ggl_headphones_003,Google - Search (Headphones),google,2025-04-29,4916,246,10,220.00000000000003,1154.26
+ggl_headphones_003,Google - Search (Headphones),google,2025-04-30,4960,214,7,220.00000000000003,858.38
+ggl_headphones_003,Google - Search (Headphones),google,2025-05-01,5027,224,12,220.00000000000003,1340.83
+ggl_headphones_003,Google - Search (Headphones),google,2025-05-02,6526,302,12,220.00000000000003,1472.02
+ggl_headphones_003,Google - Search (Headphones),google,2025-05-03,4515,236,11,220.00000000000003,1277.47
+ggl_headphones_003,Google - Search (Headphones),google,2025-05-04,4299,175,8,220.00000000000003,956.29
+ggl_headphones_003,Google - Search (Headphones),google,2025-05-05,5004,203,6,220.00000000000003,687.14
+ggl_headphones_003,Google - Search (Headphones),google,2025-05-06,5438,281,10,220.00000000000003,1286.12
+ggl_headphones_003,Google - Search (Headphones),google,2025-05-07,5448,245,10,220.00000000000003,1206.62
+ggl_headphones_003,Google - Search (Headphones),google,2025-05-08,5418,213,9,220.00000000000003,1065.06
+ggl_headphones_003,Google - Search (Headphones),google,2025-05-09,5579,256,10,220.00000000000003,1160.64
+ggl_headphones_003,Google - Search (Headphones),google,2025-05-10,5037,267,12,220.00000000000003,1529.42
+ggl_headphones_003,Google - Search (Headphones),google,2025-05-11,4726,230,10,220.00000000000003,1134.16
+ggl_headphones_003,Google - Search (Headphones),google,2025-05-12,5388,213,10,220.00000000000003,1250.41
+ggl_headphones_003,Google - Search (Headphones),google,2025-05-13,5998,268,10,220.00000000000003,1206.12
+ggl_headphones_003,Google - Search (Headphones),google,2025-05-14,5396,276,11,220.00000000000003,1254.75
+ggl_headphones_003,Google - Search (Headphones),google,2025-05-15,5823,267,10,220.00000000000003,1188.95
+ggl_headphones_003,Google - Search (Headphones),google,2025-05-16,5752,311,12,220.00000000000003,1288.98
+ggl_headphones_003,Google - Search (Headphones),google,2025-05-17,4274,191,9,220.00000000000003,1071.09
+ggl_headphones_003,Google - Search (Headphones),google,2025-05-18,4798,222,8,220.00000000000003,960.18
+ggl_headphones_003,Google - Search (Headphones),google,2025-05-19,5824,206,7,220.00000000000003,840.61
+ggl_headphones_003,Google - Search (Headphones),google,2025-05-20,5675,274,12,220.00000000000003,1514.17
+ggl_headphones_003,Google - Search (Headphones),google,2025-05-21,5460,276,10,220.00000000000003,1241.87
+ggl_headphones_003,Google - Search (Headphones),google,2025-05-22,5690,262,6,220.00000000000003,668.96
+ggl_headphones_003,Google - Search (Headphones),google,2025-05-23,5339,237,7,220.00000000000003,798.62
+ggl_headphones_003,Google - Search (Headphones),google,2025-05-24,5376,309,11,220.00000000000003,1296.0
+ggl_headphones_003,Google - Search (Headphones),google,2025-05-25,4954,185,6,220.00000000000003,716.95
+ggl_headphones_003,Google - Search (Headphones),google,2025-05-26,5599,239,10,220.00000000000003,1225.05
+ggl_headphones_003,Google - Search (Headphones),google,2025-05-27,4826,242,10,220.00000000000003,1199.36
+ggl_headphones_003,Google - Search (Headphones),google,2025-05-28,4805,215,9,220.00000000000003,1072.39
+ggl_headphones_003,Google - Search (Headphones),google,2025-05-29,6353,323,14,220.00000000000003,1842.44
+ggl_headphones_003,Google - Search (Headphones),google,2025-05-30,6848,278,13,220.00000000000003,1477.45
+ggl_headphones_003,Google - Search (Headphones),google,2025-05-31,4144,182,7,220.00000000000003,812.68
+ggl_headphones_003,Google - Search (Headphones),google,2025-06-01,4143,178,9,220.00000000000003,1096.07
+ggl_headphones_003,Google - Search (Headphones),google,2025-06-02,5520,243,8,220.00000000000003,832.72
+ggl_headphones_003,Google - Search (Headphones),google,2025-06-03,4818,183,6,220.00000000000003,767.7
+ggl_headphones_003,Google - Search (Headphones),google,2025-06-04,5398,283,13,220.00000000000003,1489.73
+ggl_headphones_003,Google - Search (Headphones),google,2025-06-05,5916,294,13,220.00000000000003,1604.16
+ggl_headphones_003,Google - Search (Headphones),google,2025-06-06,5678,234,9,220.00000000000003,1097.66
+ggl_headphones_003,Google - Search (Headphones),google,2025-06-07,4355,203,9,220.00000000000003,1163.8
+ggl_headphones_003,Google - Search (Headphones),google,2025-06-08,4843,202,7,220.00000000000003,883.88
+ggl_headphones_003,Google - Search (Headphones),google,2025-06-09,5200,232,9,220.00000000000003,995.79
+ggl_headphones_003,Google - Search (Headphones),google,2025-06-10,5854,314,13,220.00000000000003,1503.42
+ggl_headphones_003,Google - Search (Headphones),google,2025-06-11,5163,259,13,220.00000000000003,1522.39
+ggl_headphones_003,Google - Search (Headphones),google,2025-06-12,6153,289,11,220.00000000000003,1316.73
+ggl_headphones_003,Google - Search (Headphones),google,2025-06-13,5904,252,11,220.00000000000003,1359.17
+ggl_headphones_003,Google - Search (Headphones),google,2025-06-14,5240,279,12,220.00000000000003,1395.1
+ggl_headphones_003,Google - Search (Headphones),google,2025-06-15,4417,193,8,220.00000000000003,949.53
+ggl_headphones_003,Google - Search (Headphones),google,2025-06-16,5685,207,9,220.00000000000003,1083.27
+ggl_headphones_003,Google - Search (Headphones),google,2025-06-17,5561,225,12,220.00000000000003,1499.34
+ggl_headphones_003,Google - Search (Headphones),google,2025-06-18,5528,247,6,220.00000000000003,729.28
+ggl_headphones_003,Google - Search (Headphones),google,2025-06-19,6103,240,8,220.00000000000003,913.66
+ggl_headphones_003,Google - Search (Headphones),google,2025-06-20,6005,222,10,220.00000000000003,1184.93
+ggl_headphones_003,Google - Search (Headphones),google,2025-06-21,3753,158,3,220.00000000000003,353.74
+ggl_headphones_003,Google - Search (Headphones),google,2025-06-22,4006,202,8,220.00000000000003,987.14
+ggl_headphones_003,Google - Search (Headphones),google,2025-06-23,5972,274,8,220.00000000000003,1017.14
+ggl_headphones_003,Google - Search (Headphones),google,2025-06-24,5137,227,7,220.00000000000003,849.61
+ggl_headphones_003,Google - Search (Headphones),google,2025-06-25,5896,284,11,220.00000000000003,1368.97
+ggl_headphones_003,Google - Search (Headphones),google,2025-06-26,4874,204,8,220.00000000000003,979.77
+ggl_headphones_003,Google - Search (Headphones),google,2025-06-27,6892,338,19,220.00000000000003,2255.63
+ggl_headphones_003,Google - Search (Headphones),google,2025-06-28,4398,215,8,220.00000000000003,910.44
+ggl_headphones_003,Google - Search (Headphones),google,2025-06-29,5259,255,12,220.00000000000003,1432.14
+ggl_shopping_004,Google - Shopping,google,2025-04-01,12345,195,10,98.86,3286.94
+ggl_shopping_004,Google - Shopping,google,2025-04-02,13096,189,8,106.5,2369.52
+ggl_shopping_004,Google - Shopping,google,2025-04-03,12852,211,11,100.27,3237.35
+ggl_shopping_004,Google - Shopping,google,2025-04-04,14301,191,11,132.87,3458.33
+ggl_shopping_004,Google - Shopping,google,2025-04-05,9567,156,5,98.15,1498.18
+ggl_shopping_004,Google - Shopping,google,2025-04-06,10602,169,8,103.56,2576.83
+ggl_shopping_004,Google - Shopping,google,2025-04-07,13335,144,7,83.11,1916.03
+ggl_shopping_004,Google - Shopping,google,2025-04-08,12872,220,11,114.79,3148.89
+ggl_shopping_004,Google - Shopping,google,2025-04-09,12113,211,11,118.36,2991.25
+ggl_shopping_004,Google - Shopping,google,2025-04-10,15439,249,13,146.13,3625.09
+ggl_shopping_004,Google - Shopping,google,2025-04-11,15407,228,10,133.45,2912.9
+ggl_shopping_004,Google - Shopping,google,2025-04-12,11650,183,9,118.39,2769.28
+ggl_shopping_004,Google - Shopping,google,2025-04-13,10094,189,11,92.06,3525.7
+ggl_shopping_004,Google - Shopping,google,2025-04-14,11472,215,12,144.41,3605.04
+ggl_shopping_004,Google - Shopping,google,2025-04-15,12727,192,11,120.6,3329.92
+ggl_shopping_004,Google - Shopping,google,2025-04-16,12031,201,11,133.93,3423.01
+ggl_shopping_004,Google - Shopping,google,2025-04-17,13327,187,7,100.51,2124.88
+ggl_shopping_004,Google - Shopping,google,2025-04-18,14173,210,8,81.31,2534.5
+ggl_shopping_004,Google - Shopping,google,2025-04-19,10593,170,10,84.98,2978.4
+ggl_shopping_004,Google - Shopping,google,2025-04-20,10833,207,10,146.8,2911.02
+ggl_shopping_004,Google - Shopping,google,2025-04-21,12154,199,9,117.89,2898.07
+ggl_shopping_004,Google - Shopping,google,2025-04-22,13009,250,16,151.63,4885.76
+ggl_shopping_004,Google - Shopping,google,2025-04-23,14167,205,11,110.4,3463.11
+ggl_shopping_004,Google - Shopping,google,2025-04-24,13851,189,7,94.89,1914.4
+ggl_shopping_004,Google - Shopping,google,2025-04-25,14589,255,8,152.75,2377.11
+ggl_shopping_004,Google - Shopping,google,2025-04-26,11192,213,10,105.45,3255.88
+ggl_shopping_004,Google - Shopping,google,2025-04-27,11116,185,10,112.53,3116.64
+ggl_shopping_004,Google - Shopping,google,2025-04-28,11828,203,11,101.73,3329.49
+ggl_shopping_004,Google - Shopping,google,2025-04-29,12649,199,8,110.48,2357.57
+ggl_shopping_004,Google - Shopping,google,2025-04-30,12153,199,11,102.92,3105.06
+ggl_shopping_004,Google - Shopping,google,2025-05-01,13358,199,11,138.39,3265.06
+ggl_shopping_004,Google - Shopping,google,2025-05-02,15240,191,13,114.01,3925.81
+ggl_shopping_004,Google - Shopping,google,2025-05-03,11553,194,7,128.91,1923.36
+ggl_shopping_004,Google - Shopping,google,2025-05-04,11056,164,8,113.89,2167.86
+ggl_shopping_004,Google - Shopping,google,2025-05-05,11515,133,6,77.56,1761.8
+ggl_shopping_004,Google - Shopping,google,2025-05-06,14645,263,9,154.57,2783.33
+ggl_shopping_004,Google - Shopping,google,2025-05-07,14107,233,10,156.27,3301.31
+ggl_shopping_004,Google - Shopping,google,2025-05-08,13088,226,10,108.14,3227.46
+ggl_shopping_004,Google - Shopping,google,2025-05-09,14538,254,13,156.73,4165.95
+ggl_shopping_004,Google - Shopping,google,2025-05-10,11421,151,8,81.87,2447.46
+ggl_shopping_004,Google - Shopping,google,2025-05-11,9634,144,7,80.37,1955.53
+ggl_shopping_004,Google - Shopping,google,2025-05-12,12331,185,11,121.28,3275.94
+ggl_shopping_004,Google - Shopping,google,2025-05-13,13230,218,9,117.98,2573.07
+ggl_shopping_004,Google - Shopping,google,2025-05-14,12988,186,11,113.77,3038.13
+ggl_shopping_004,Google - Shopping,google,2025-05-15,14390,229,12,143.03,3338.35
+ggl_shopping_004,Google - Shopping,google,2025-05-16,13522,221,8,148.97,2441.49
+ggl_shopping_004,Google - Shopping,google,2025-05-17,12915,208,10,133.04,2982.1
+ggl_shopping_004,Google - Shopping,google,2025-05-18,9711,121,5,80.81,1465.84
+ggl_shopping_004,Google - Shopping,google,2025-05-19,11693,165,8,96.93,2445.36
+ggl_shopping_004,Google - Shopping,google,2025-05-20,14335,243,16,149.97,4543.78
+ggl_shopping_004,Google - Shopping,google,2025-05-21,13799,253,10,174.83,2953.15
+ggl_shopping_004,Google - Shopping,google,2025-05-22,16126,280,14,171.94,4119.4
+ggl_shopping_004,Google - Shopping,google,2025-05-23,15586,251,14,149.83,4057.6
+ggl_shopping_004,Google - Shopping,google,2025-05-24,15566,333,19,157.19,5483.35
+ggl_shopping_004,Google - Shopping,google,2025-05-25,14779,246,16,161.09,4846.18
+ggl_shopping_004,Google - Shopping,google,2025-05-26,18157,231,13,165.05,4110.18
+ggl_shopping_004,Google - Shopping,google,2025-05-27,12643,193,10,117.83,3042.46
+ggl_shopping_004,Google - Shopping,google,2025-05-28,15254,209,11,140.05,3266.38
+ggl_shopping_004,Google - Shopping,google,2025-05-29,12997,228,13,97.17,3609.04
+ggl_shopping_004,Google - Shopping,google,2025-05-30,15494,256,13,175.16,3764.64
+ggl_shopping_004,Google - Shopping,google,2025-05-31,11605,219,11,139.86,3260.99
+ggl_shopping_004,Google - Shopping,google,2025-06-01,10009,174,10,82.35,3019.29
+ggl_shopping_004,Google - Shopping,google,2025-06-02,16063,241,17,142.82,5403.8
+ggl_shopping_004,Google - Shopping,google,2025-06-03,13397,231,13,138.63,3763.76
+ggl_shopping_004,Google - Shopping,google,2025-06-04,14111,200,12,121.95,3559.06
+ggl_shopping_004,Google - Shopping,google,2025-06-05,12988,241,12,150.93,3549.49
+ggl_shopping_004,Google - Shopping,google,2025-06-06,13746,209,14,117.31,4065.7
+ggl_shopping_004,Google - Shopping,google,2025-06-07,12874,207,11,127.9,3444.05
+ggl_shopping_004,Google - Shopping,google,2025-06-08,11091,159,8,79.58,2250.11
+ggl_shopping_004,Google - Shopping,google,2025-06-09,14104,229,9,176.55,2727.49
+ggl_shopping_004,Google - Shopping,google,2025-06-10,13067,212,7,129.36,2124.87
+ggl_shopping_004,Google - Shopping,google,2025-06-11,16579,271,17,167.67,5058.19
+ggl_shopping_004,Google - Shopping,google,2025-06-12,14398,190,10,122.77,2848.1
+ggl_shopping_004,Google - Shopping,google,2025-06-13,15974,258,16,144.98,4478.79
+ggl_shopping_004,Google - Shopping,google,2025-06-14,13437,199,14,109.9,4436.74
+ggl_shopping_004,Google - Shopping,google,2025-06-15,11821,184,10,103.39,3005.63
+ggl_shopping_004,Google - Shopping,google,2025-06-16,13723,236,10,137.96,2922.52
+ggl_shopping_004,Google - Shopping,google,2025-06-17,15604,233,11,136.62,3318.37
+ggl_shopping_004,Google - Shopping,google,2025-06-18,14112,280,12,178.21,3720.82
+ggl_shopping_004,Google - Shopping,google,2025-06-19,14338,234,12,145.69,3760.71
+ggl_shopping_004,Google - Shopping,google,2025-06-20,15016,245,13,135.42,4114.34
+ggl_shopping_004,Google - Shopping,google,2025-06-21,13180,269,13,205.32,3913.73
+ggl_shopping_004,Google - Shopping,google,2025-06-22,10755,173,8,95.95,2273.77
+ggl_shopping_004,Google - Shopping,google,2025-06-23,13830,212,10,140.05,3421.44
+ggl_shopping_004,Google - Shopping,google,2025-06-24,14185,250,18,126.68,5702.27
+ggl_shopping_004,Google - Shopping,google,2025-06-25,15092,229,11,140.87,3541.29
+ggl_shopping_004,Google - Shopping,google,2025-06-26,16471,292,14,123.98,4344.43
+ggl_shopping_004,Google - Shopping,google,2025-06-27,17773,347,21,168.43,6619.89
+ggl_shopping_004,Google - Shopping,google,2025-06-28,11015,194,10,120.23,2722.18
+ggl_shopping_004,Google - Shopping,google,2025-06-29,11702,200,10,117.87,2933.55

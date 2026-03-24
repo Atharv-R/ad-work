@@ -1,0 +1,271 @@
+campaign_id,campaign_name,platform,date,impressions,clicks,conversions,spend,revenue
+meta_remarket_005,Meta - Remarketing,meta,2025-04-01,20933,327,12,141.77,2411.08
+meta_remarket_005,Meta - Remarketing,meta,2025-04-02,17790,279,11,125.54,2305.68
+meta_remarket_005,Meta - Remarketing,meta,2025-04-03,18600,224,8,104.11,1613.61
+meta_remarket_005,Meta - Remarketing,meta,2025-04-04,22216,356,15,178.13,2960.88
+meta_remarket_005,Meta - Remarketing,meta,2025-04-05,15024,243,10,125.38,1912.04
+meta_remarket_005,Meta - Remarketing,meta,2025-04-06,18005,294,10,157.05,1977.35
+meta_remarket_005,Meta - Remarketing,meta,2025-04-07,21322,323,13,125.86,2675.23
+meta_remarket_005,Meta - Remarketing,meta,2025-04-08,21295,328,16,143.02,3055.89
+meta_remarket_005,Meta - Remarketing,meta,2025-04-09,20173,305,9,151.73,1682.07
+meta_remarket_005,Meta - Remarketing,meta,2025-04-10,18579,282,10,109.87,2066.14
+meta_remarket_005,Meta - Remarketing,meta,2025-04-11,22037,341,15,147.94,3071.27
+meta_remarket_005,Meta - Remarketing,meta,2025-04-12,17190,256,10,129.63,1860.3
+meta_remarket_005,Meta - Remarketing,meta,2025-04-13,18106,245,11,128.94,2231.89
+meta_remarket_005,Meta - Remarketing,meta,2025-04-14,20514,305,11,148.43,2225.91
+meta_remarket_005,Meta - Remarketing,meta,2025-04-15,22779,327,10,136.27,1893.55
+meta_remarket_005,Meta - Remarketing,meta,2025-04-16,18197,297,14,162.66,2572.35
+meta_remarket_005,Meta - Remarketing,meta,2025-04-17,23648,411,16,174.81,2878.74
+meta_remarket_005,Meta - Remarketing,meta,2025-04-18,23890,325,10,149.75,2054.29
+meta_remarket_005,Meta - Remarketing,meta,2025-04-19,19825,279,7,108.42,1381.35
+meta_remarket_005,Meta - Remarketing,meta,2025-04-20,16517,213,8,101.06,1513.94
+meta_remarket_005,Meta - Remarketing,meta,2025-04-21,19494,330,13,159.24,2680.48
+meta_remarket_005,Meta - Remarketing,meta,2025-04-22,19449,298,11,136.47,2247.9
+meta_remarket_005,Meta - Remarketing,meta,2025-04-23,20122,324,7,155.46,1483.32
+meta_remarket_005,Meta - Remarketing,meta,2025-04-24,17018,245,9,123.82,1668.04
+meta_remarket_005,Meta - Remarketing,meta,2025-04-25,21491,364,17,126.03,3390.63
+meta_remarket_005,Meta - Remarketing,meta,2025-04-26,16690,241,11,95.21,2280.57
+meta_remarket_005,Meta - Remarketing,meta,2025-04-27,15043,222,10,89.55,1864.99
+meta_remarket_005,Meta - Remarketing,meta,2025-04-28,23176,355,13,137.48,2495.79
+meta_remarket_005,Meta - Remarketing,meta,2025-04-29,19386,301,8,115.49,1569.63
+meta_remarket_005,Meta - Remarketing,meta,2025-04-30,18492,263,9,105.44,1980.09
+meta_remarket_005,Meta - Remarketing,meta,2025-05-01,22762,360,13,127.47,2627.99
+meta_remarket_005,Meta - Remarketing,meta,2025-05-02,21769,367,14,141.31,2717.95
+meta_remarket_005,Meta - Remarketing,meta,2025-05-03,18820,272,10,118.42,1926.56
+meta_remarket_005,Meta - Remarketing,meta,2025-05-04,18242,289,11,128.67,2287.62
+meta_remarket_005,Meta - Remarketing,meta,2025-05-05,20289,305,15,138.97,2798.95
+meta_remarket_005,Meta - Remarketing,meta,2025-05-06,23073,290,14,133.9,2868.41
+meta_remarket_005,Meta - Remarketing,meta,2025-05-07,22052,323,12,145.89,2305.68
+meta_remarket_005,Meta - Remarketing,meta,2025-05-08,22284,353,12,144.23,2236.77
+meta_remarket_005,Meta - Remarketing,meta,2025-05-09,24620,404,19,186.85,3816.69
+meta_remarket_005,Meta - Remarketing,meta,2025-05-10,19288,309,11,137.52,2443.56
+meta_remarket_005,Meta - Remarketing,meta,2025-05-11,17040,248,10,117.41,1859.52
+meta_remarket_005,Meta - Remarketing,meta,2025-05-12,22689,350,17,136.5,3506.36
+meta_remarket_005,Meta - Remarketing,meta,2025-05-13,19668,362,15,175.78,3238.53
+meta_remarket_005,Meta - Remarketing,meta,2025-05-14,22182,346,15,143.36,3071.49
+meta_remarket_005,Meta - Remarketing,meta,2025-05-15,22994,331,13,151.27,2426.65
+meta_remarket_005,Meta - Remarketing,meta,2025-05-16,21204,351,15,108.63,2928.29
+meta_remarket_005,Meta - Remarketing,meta,2025-05-17,20798,310,12,150.54,2413.65
+meta_remarket_005,Meta - Remarketing,meta,2025-05-18,18848,282,10,142.08,2029.46
+meta_remarket_005,Meta - Remarketing,meta,2025-05-19,22507,377,13,208.66,2420.71
+meta_remarket_005,Meta - Remarketing,meta,2025-05-20,20276,340,14,162.14,2642.79
+meta_remarket_005,Meta - Remarketing,meta,2025-05-21,23402,323,19,165.56,3869.63
+meta_remarket_005,Meta - Remarketing,meta,2025-05-22,24200,362,13,127.51,2457.92
+meta_remarket_005,Meta - Remarketing,meta,2025-05-23,21395,395,17,183.57,3347.47
+meta_remarket_005,Meta - Remarketing,meta,2025-05-24,23364,404,18,181.09,3564.72
+meta_remarket_005,Meta - Remarketing,meta,2025-05-25,21784,295,11,101.24,2206.21
+meta_remarket_005,Meta - Remarketing,meta,2025-05-26,23661,373,10,168.93,1908.49
+meta_remarket_005,Meta - Remarketing,meta,2025-05-27,22898,376,16,145.78,3363.59
+meta_remarket_005,Meta - Remarketing,meta,2025-05-28,23576,370,14,157.15,2865.49
+meta_remarket_005,Meta - Remarketing,meta,2025-05-29,23639,398,18,181.93,3617.03
+meta_remarket_005,Meta - Remarketing,meta,2025-05-30,25886,447,13,181.73,2800.65
+meta_remarket_005,Meta - Remarketing,meta,2025-05-31,19471,256,12,105.33,2366.44
+meta_remarket_005,Meta - Remarketing,meta,2025-06-01,17298,313,11,123.15,2223.25
+meta_remarket_005,Meta - Remarketing,meta,2025-06-02,21903,366,16,182.71,3278.3
+meta_remarket_005,Meta - Remarketing,meta,2025-06-03,21860,350,15,159.53,3115.88
+meta_remarket_005,Meta - Remarketing,meta,2025-06-04,23336,374,16,151.96,3195.52
+meta_remarket_005,Meta - Remarketing,meta,2025-06-05,23792,463,20,195.25,4213.69
+meta_remarket_005,Meta - Remarketing,meta,2025-06-06,24710,487,21,209.21,4032.25
+meta_remarket_005,Meta - Remarketing,meta,2025-06-07,18665,306,13,151.68,2763.68
+meta_remarket_005,Meta - Remarketing,meta,2025-06-08,18018,279,12,166.29,2313.66
+meta_remarket_005,Meta - Remarketing,meta,2025-06-09,20192,293,11,146.67,2214.01
+meta_remarket_005,Meta - Remarketing,meta,2025-06-10,22355,385,13,155.65,2629.16
+meta_remarket_005,Meta - Remarketing,meta,2025-06-11,23572,391,18,158.86,3466.11
+meta_remarket_005,Meta - Remarketing,meta,2025-06-12,22600,329,15,171.17,3090.75
+meta_remarket_005,Meta - Remarketing,meta,2025-06-13,27141,559,21,199.96,4070.6
+meta_remarket_005,Meta - Remarketing,meta,2025-06-14,18016,258,9,111.93,1830.15
+meta_remarket_005,Meta - Remarketing,meta,2025-06-15,18350,310,14,148.0,2747.72
+meta_remarket_005,Meta - Remarketing,meta,2025-06-16,25171,415,15,145.01,2738.92
+meta_remarket_005,Meta - Remarketing,meta,2025-06-17,22648,361,20,153.32,4109.8
+meta_remarket_005,Meta - Remarketing,meta,2025-06-18,23952,351,15,139.01,3025.95
+meta_remarket_005,Meta - Remarketing,meta,2025-06-19,20212,321,13,144.69,2494.26
+meta_remarket_005,Meta - Remarketing,meta,2025-06-20,23767,378,17,171.95,3583.75
+meta_remarket_005,Meta - Remarketing,meta,2025-06-21,18999,294,13,139.25,2543.55
+meta_remarket_005,Meta - Remarketing,meta,2025-06-22,19557,348,19,180.87,3635.38
+meta_remarket_005,Meta - Remarketing,meta,2025-06-23,21684,352,13,156.54,2406.88
+meta_remarket_005,Meta - Remarketing,meta,2025-06-24,22932,344,13,156.4,2457.04
+meta_remarket_005,Meta - Remarketing,meta,2025-06-25,23212,383,22,184.33,4461.0
+meta_remarket_005,Meta - Remarketing,meta,2025-06-26,24819,360,19,136.98,3624.54
+meta_remarket_005,Meta - Remarketing,meta,2025-06-27,22913,372,13,165.59,2560.35
+meta_remarket_005,Meta - Remarketing,meta,2025-06-28,21510,322,15,120.67,3073.84
+meta_remarket_005,Meta - Remarketing,meta,2025-06-29,17593,241,10,98.76,2116.57
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-04-01,38517,305,2,362.68,420.68
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-04-02,38007,313,5,354.49,1027.55
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-04-03,35596,262,3,292.98,614.33
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-04-04,48831,413,4,385.00000000000006,781.78
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-04-05,37124,264,4,312.4,805.07
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-04-06,25602,178,2,240.12,360.32
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-04-07,43820,349,5,385.00000000000006,1022.93
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-04-08,43068,367,6,385.00000000000006,1105.18
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-04-09,43326,384,5,385.00000000000006,1058.25
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-04-10,47052,471,6,385.00000000000006,1181.63
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-04-11,43975,318,4,233.83,814.77
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-04-12,34389,326,5,359.18,1013.07
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-04-13,36030,294,4,376.52,819.84
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-04-14,40904,315,6,363.34,1183.78
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-04-15,43105,385,5,385.00000000000006,880.83
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-04-16,43408,268,4,346.8,839.99
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-04-17,40497,271,4,307.43,780.34
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-04-18,45917,465,8,385.00000000000006,1667.51
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-04-19,39898,310,4,256.92,832.47
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-04-20,31064,241,4,243.09,829.98
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-04-21,41664,350,5,383.28,940.74
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-04-22,34289,275,4,314.26,862.85
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-04-23,46755,333,5,350.82,1126.6
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-04-24,48644,427,5,385.00000000000006,1039.45
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-04-25,41446,319,5,346.07,982.27
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-04-26,28612,237,3,238.83,597.4
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-04-27,32823,279,3,250.45,620.52
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-04-28,37521,248,4,294.69,798.2
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-04-29,34915,294,4,258.98,764.5
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-04-30,37550,282,3,303.38,617.66
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-05-01,41793,361,4,385.00000000000006,765.36
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-05-02,39318,318,3,334.92,583.93
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-05-03,32870,299,3,261.69,633.3
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-05-04,37068,269,4,273.46,706.92
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-05-05,33465,255,3,332.67,603.03
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-05-06,45007,428,6,385.00000000000006,1309.32
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-05-07,36221,313,4,302.23,790.3
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-05-08,39876,282,4,320.49,794.81
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-05-09,45379,376,6,365.38,1249.16
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-05-10,42650,321,5,333.69,1040.96
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-05-11,31893,239,3,279.97,587.68
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-05-12,39460,340,3,346.87,542.5
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-05-13,36975,251,3,270.98,578.92
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-05-14,38551,288,4,367.08,800.65
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-05-15,41444,310,4,354.41,763.7
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-05-16,45096,281,4,316.95,788.8
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-05-17,40283,287,4,323.94,795.99
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-05-18,32897,259,4,313.89,799.91
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-05-19,41586,301,3,361.53,632.72
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-05-20,48216,371,4,300.73,849.28
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-05-21,42761,341,5,385.00000000000006,1060.89
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-05-22,46031,413,6,385.00000000000006,1181.57
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-05-23,42648,389,6,385.00000000000006,1207.42
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-05-24,41751,325,5,385.00000000000006,914.43
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-05-25,40640,372,3,385.00000000000006,656.79
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-05-26,51279,396,6,385.00000000000006,1167.48
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-05-27,44574,365,5,385.00000000000006,991.25
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-05-28,44216,313,4,277.29,825.25
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-05-29,44365,358,5,378.65,997.72
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-05-30,42903,322,3,385.00000000000006,614.99
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-05-31,30229,232,2,241.92,407.78
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-06-01,31960,195,3,236.11,644.7
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-06-02,39873,310,5,385.00000000000006,1056.68
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-06-03,37613,297,3,343.93,614.08
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-06-04,48048,395,5,385.00000000000006,996.34
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-06-05,43868,311,5,302.54,1068.62
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-06-06,40955,347,5,377.72,1023.01
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-06-07,37561,292,4,375.55,824.97
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-06-08,30654,288,4,334.66,735.67
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-06-09,36078,313,3,356.15,631.15
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-06-10,38766,341,5,371.15,1058.95
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-06-11,37600,261,4,280.33,746.76
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-06-12,36755,306,4,312.24,725.73
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-06-13,41913,322,4,385.00000000000006,866.3
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-06-14,32769,235,3,306.19,583.44
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-06-15,32318,282,3,364.78,598.73
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-06-16,38757,268,3,292.83,634.21
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-06-17,44283,329,5,352.61,970.74
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-06-18,42262,322,3,313.0,643.41
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-06-19,41733,373,5,385.00000000000006,1119.63
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-06-20,40424,251,3,318.73,599.38
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-06-21,32922,259,3,252.4,613.49
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-06-22,29975,213,2,224.53,391.55
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-06-23,38704,284,4,302.23,773.77
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-06-24,42460,372,5,385.00000000000006,988.02
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-06-25,41390,366,3,385.00000000000006,613.62
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-06-26,46261,346,4,385.00000000000006,740.58
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-06-27,44495,280,4,299.14,723.61
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-06-28,30893,211,2,230.34,427.98
+meta_lal_006,Meta - Prospecting (Lookalike),meta,2025-06-29,34967,280,4,313.38,765.52
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-04-01,56100,249,2,275.0,363.8
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-04-02,51708,268,2,263.96,357.96
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-04-03,54667,292,1,275.0,178.73
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-04-04,57637,290,2,275.0,340.45
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-04-05,45449,255,2,275.0,349.46
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-04-06,41033,185,1,271.85,168.62
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-04-07,45049,194,1,275.0,179.77
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-04-08,50452,226,2,275.0,385.06
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-04-09,48526,256,1,275.0,189.18
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-04-10,59563,326,2,275.0,373.5
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-04-11,58707,279,2,275.0,379.42
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-04-12,40241,211,1,275.0,187.85
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-04-13,39657,164,1,230.25,175.12
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-04-14,46609,188,1,275.0,186.93
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-04-15,55772,290,2,275.0,352.3
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-04-16,62612,325,2,275.0,341.8
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-04-17,60633,278,2,275.0,366.93
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-04-18,56949,280,2,275.0,351.91
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-04-19,49420,240,1,275.0,189.9
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-04-20,43945,227,1,275.0,174.21
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-04-21,47982,257,1,275.0,172.3
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-04-22,51844,297,2,275.0,335.23
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-04-23,48739,229,1,275.0,180.06
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-04-24,51434,214,1,275.0,187.59
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-04-25,49202,247,1,275.0,180.08
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-04-26,43466,250,1,275.0,202.45
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-04-27,38364,205,1,275.0,184.44
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-04-28,48231,247,2,275.0,361.36
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-04-29,50344,271,2,275.0,348.04
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-04-30,46714,213,1,275.0,188.78
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-05-01,52687,292,2,275.0,345.21
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-05-02,62739,302,2,275.0,343.98
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-05-03,38442,197,2,267.72,340.45
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-05-04,36963,187,1,275.0,185.15
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-05-05,41176,185,1,241.75,181.05
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-05-06,41572,174,1,244.18,183.57
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-05-07,51847,272,2,275.0,359.97
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-05-08,54250,274,1,275.0,177.01
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-05-09,51697,259,1,275.0,174.04
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-05-10,39057,206,1,275.0,187.28
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-05-11,38970,160,1,269.41,176.32
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-05-12,48107,257,1,275.0,184.89
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-05-13,48343,275,1,275.0,183.22
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-05-14,58058,321,2,275.0,376.42
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-05-15,49543,242,1,275.0,173.91
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-05-16,58859,303,1,275.0,177.2
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-05-17,40367,209,1,275.0,173.2
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-05-18,31625,124,0,217.73,0.0
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-05-19,53855,288,2,275.0,357.62
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-05-20,50834,280,2,275.0,381.05
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-05-21,45207,230,1,275.0,160.85
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-05-22,47943,239,1,275.0,197.56
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-05-23,48975,231,1,275.0,180.25
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-05-24,46450,250,2,275.0,359.42
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-05-25,54389,255,1,275.0,181.07
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-05-26,60565,263,1,275.0,200.7
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-05-27,49204,268,2,275.0,336.22
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-05-28,47736,229,1,275.0,192.45
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-05-29,54465,298,3,275.0,526.89
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-05-30,50789,210,1,275.0,176.99
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-05-31,46526,233,1,275.0,177.61
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-06-01,38430,144,1,243.48,186.66
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-06-02,55753,252,1,275.0,188.89
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-06-03,46962,206,1,275.0,161.6
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-06-04,44322,238,1,275.0,178.47
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-06-05,51479,258,1,275.0,182.46
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-06-06,53276,263,2,275.0,379.65
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-06-07,43620,206,1,275.0,179.35
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-06-08,43601,200,1,267.97,181.81
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-06-09,45159,220,1,275.0,192.81
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-06-10,52714,222,1,275.0,175.94
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-06-11,44330,196,1,275.0,177.16
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-06-12,55851,264,2,275.0,354.78
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-06-13,53320,253,2,275.0,344.78
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-06-14,44533,210,1,255.61,191.41
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-06-15,36616,169,1,201.01,189.43
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-06-16,44476,182,1,275.0,175.76
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-06-17,51323,209,1,275.0,188.72
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-06-18,53199,228,1,275.0,196.44
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-06-19,46060,240,2,275.0,370.64
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-06-20,48600,211,1,275.0,179.36
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-06-21,41502,205,1,275.0,172.68
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-06-22,39748,204,1,275.0,182.59
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-06-23,48596,207,1,275.0,168.76
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-06-24,49373,230,1,275.0,182.18
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-06-25,50176,228,1,275.0,183.33
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-06-26,52958,225,1,275.0,175.26
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-06-27,47773,245,1,275.0,197.75
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-06-28,40418,240,1,275.0,176.42
+meta_interest_007,Meta - Prospecting (Interest),meta,2025-06-29,39870,196,1,275.0,182.15

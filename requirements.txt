@@ -173,3 +173,18 @@ watchdog==6.0.0
     # via streamlit
 win32-setctime==1.2.0
     # via loguru
+    
+pydantic>=2.0
+pydantic-settings>=2.0
+python-dotenv>=1.0
+duckdb>=1.0
+pandas>=2.0
+pyarrow>=15.0
+numpy>=1.26
+pytrends>=4.9
+groq>=0.4
+openai>=1.30
+streamlit>=1.35
+plotly>=5.20
+loguru>=0.7
+tenacity>=8.0
