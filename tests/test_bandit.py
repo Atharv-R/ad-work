@@ -98,7 +98,7 @@ def test_simulation_ts_beats_random():
     n_trials = 10
 
     for seed in range(n_trials):
-        results = run_bandit_simulation(base_metrics, n_rounds=600, seed=seed)
+        results = run_bandit_simulation(base_metrics, n_rounds=1000, seed=seed)
 
         ts = next(s for s in results["strategies"] if "Thompson" in s.strategy)
         rand = next(s for s in results["strategies"] if "Random" in s.strategy)

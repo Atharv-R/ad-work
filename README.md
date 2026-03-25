@@ -23,10 +23,20 @@ advertising recommendations.
 Digital advertisers manage campaigns across Google, Meta, and Amazon — each with different metrics, bid strategies, and budget constraints. Decisions are manual, reactive, and rarely explained. Ad-Work automates the full loop: monitor → forecast → optimize → explain.
 
 ## Architecture
-gather data → analyze → forecast → optimize → synthesize
+| Forecaster | 
+| Prophet + statsmodels |
 |---|
-|Forecaster| CTR Model | Bandit | Budget Allocation | LLM |
-|Prophet + statsmodels| LightGBM on Criteo data | Thompson Sampling | Cross-campaign reallocation | LangGraph Agent
+| CTR Model |
+| LightGBM on Criteo data |
+|---|
+| Bandit |
+| Thompson Sampling |
+|---|
+| Budget Allocation |
+| Cross-campaign reallocation |
+|---|
+| LLM |
+| LangGraph Agent |
 |---|
 |DuckDB|
 | campaigns · daily_metrics · forecasts · recommendations |
