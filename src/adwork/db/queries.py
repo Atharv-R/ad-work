@@ -10,7 +10,7 @@ never write raw SQL. This makes it easy to test, cache, and optimize.
 import pandas as pd
 from datetime import date, timedelta
 from loguru import logger
-
+import json
 from adwork.db.connection import get_db
 
 
@@ -306,3 +306,129 @@ def has_forecasts() -> bool:
     conn = get_db()
     result = conn.execute("SELECT COUNT(*) FROM forecasts").fetchone()
     return result[0] > 0 if result else False
+
+
+def store_recommendations(recommendations: list[dict]) -> int:
+    """Store optimization recommendations in DuckDB."""
+    conn = get_db()
+    count = 0
+
+    for rec in recommendations:
+        conn.execute("""
+            INSERT INTO recommendations 
+            (campaign_id, action_type, action_detail, reasoning, confidence, status)
+            VALUES (?, ?, ?, ?, ?, 'pending')
+        """, [
+            rec.get("campaign_id"),
+            rec.get("action_type", "bid_adjustment"),
+            json.dumps(rec.get("action_detail", {})),
+            rec.get("reasoning", ""),
+            rec.get("confidence", "medium"),
+        ])
+        count += 1
+
+    logger.info(f"Stored {count} recommendations")
+    return count
+
+
+def get_recent_recommendations(limit: int = 20) -> pd.DataFrame:
+    """Get most recent recommendations with campaign names."""
+    conn = get_db()
+
+    return conn.execute("""
+        SELECT 
+            r.campaign_id,
+            c.campaign_name,
+            c.platform,
+            r.action_type,
+            r.action_detail,
+            r.reasoning,
+            r.confidence,
+            r.status,
+            r.created_at
+        FROM recommendations r
+        LEFT JOIN campaigns c ON r.campaign_id = c.campaign_id
+        ORDER BY r.created_at DESC
+        LIMIT ?
+    """, [limit]).df()
+
+
+def clear_recommendations() -> None:
+    """Clear all existing recommendations."""
+    conn = get_db()
+    conn.execute("DELETE FROM recommendations")
+
+# ── Competitor queries ───────────────────────────────────────────────
+
+def get_competitor_ads(
+    advertiser: str | None = None,
+    platform: str | None = None,
+    category: str | None = None,
+) -> pd.DataFrame:
+    """Retrieve competitor ads with optional filters."""
+    conn = get_db()
+    query = "SELECT * FROM competitor_ads WHERE 1=1"
+    params: list = []
+    if advertiser:
+        query += " AND advertiser_name = ?"
+        params.append(advertiser)
+    if platform:
+        query += " AND platform = ?"
+        params.append(platform)
+    if category:
+        query += " AND category = ?"
+        params.append(category)
+    query += " ORDER BY last_seen DESC"
+    return conn.execute(query, params).fetchdf()
+
+
+def has_competitor_data() -> bool:
+    conn = get_db()
+    result = conn.execute("SELECT COUNT(*) FROM competitor_ads").fetchone()
+    return result[0] > 0 if result else False
+
+
+def store_cluster_results(clusters: list[dict], analysis_date: str) -> int:
+    """Store cluster analysis results. Returns rows stored."""
+    conn = get_db()
+    rows = [
+        (c["cluster_id"], c["label"], json.dumps(c["top_terms"]),
+         c["n_ads"], analysis_date)
+        for c in clusters
+    ]
+    conn.executemany(
+        """INSERT INTO competitor_clusters
+           (cluster_id, cluster_label, top_terms, n_ads, analysis_date)
+           VALUES (?,?,?,?,?)
+           ON CONFLICT (cluster_id, analysis_date) DO UPDATE SET
+             cluster_label=excluded.cluster_label,
+             top_terms=excluded.top_terms,
+             n_ads=excluded.n_ads""",
+        rows,
+    )
+    return len(rows)
+
+
+def get_cluster_results() -> pd.DataFrame:
+    """Get most recent cluster analysis."""
+    conn = get_db()
+    return conn.execute("""
+        SELECT * FROM competitor_clusters
+        WHERE analysis_date = (SELECT MAX(analysis_date) FROM competitor_clusters)
+        ORDER BY cluster_id
+    """).fetchdf()
+
+
+def get_competitor_advertisers() -> list[str]:
+    """Get distinct advertiser names."""
+    conn = get_db()
+    result = conn.execute(
+        "SELECT DISTINCT advertiser_name FROM competitor_ads ORDER BY advertiser_name"
+    ).fetchdf()
+    return result["advertiser_name"].tolist() if not result.empty else []
+
+
+def clear_competitor_data() -> None:
+    conn = get_db()
+    conn.execute("DELETE FROM competitor_ads")
+    conn.execute("DELETE FROM competitor_clusters")

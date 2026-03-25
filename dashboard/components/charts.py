@@ -557,6 +557,195 @@ def evaluation_metrics_display(evaluation: dict) -> dict:
         },
     }
 
+
+def regret_curve_chart(simulation_data: dict) -> go.Figure:
+    """
+    Cumulative regret comparison across bandit strategies.
+    The key chart proving Thompson Sampling works.
+    """
+    strategies = simulation_data.get("strategies", [])
+    if not strategies:
+        return _empty_chart("No simulation data")
+
+    fig = go.Figure()
+
+    colors = {
+        "Thompson Sampling": "#4F8BF9",
+        "Epsilon-Greedy (ε=0.1)": "#FF9900",
+        "Uniform Random": "#FF5252",
+    }
+
+    for s in strategies:
+        name = s["strategy"] if isinstance(s, dict) else s.strategy
+        regret = s["cumulative_regret"] if isinstance(s, dict) else s.cumulative_regret
+
+        fig.add_trace(go.Scatter(
+            x=list(range(1, len(regret) + 1)),
+            y=regret,
+            mode="lines",
+            name=name,
+            line=dict(color=colors.get(name, "#888"), width=2),
+        ))
+
+    fig.update_layout(
+        title="Cumulative Regret by Strategy",
+        xaxis_title="Round (Day)",
+        yaxis_title="Cumulative Regret ($)",
+        hovermode="x unified",
+        legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1),
+        margin=dict(l=20, r=20, t=50, b=20),
+        height=400,
+    )
+
+    fig.add_annotation(
+        text="Lower regret = better strategy",
+        xref="paper", yref="paper",
+        x=0.02, y=0.98,
+        showarrow=False,
+        font=dict(size=11, color="gray"),
+    )
+
+    return fig
+
+
+def arm_selection_chart(simulation_data: dict) -> go.Figure:
+    """
+    Bar chart showing how often each bid level was selected per strategy.
+    Thompson Sampling should concentrate on the best arm over time.
+    """
+    strategies = simulation_data.get("strategies", [])
+    if not strategies:
+        return _empty_chart("No simulation data")
+
+    fig = go.Figure()
+
+    colors = {
+        "Thompson Sampling": "#4F8BF9",
+        "Epsilon-Greedy (ε=0.1)": "#FF9900",
+        "Uniform Random": "#FF5252",
+    }
+
+    for s in strategies:
+        name = s["strategy"] if isinstance(s, dict) else s.strategy
+        counts = s["arm_counts"] if isinstance(s, dict) else s.arm_counts
+
+        sorted_arms = sorted(counts.keys(), key=lambda x: float(x))
+
+        fig.add_trace(go.Bar(
+            x=[f"{float(a):.2f}x" for a in sorted_arms],
+            y=[counts[a] for a in sorted_arms],
+            name=name,
+            marker_color=colors.get(name, "#888"),
+        ))
+
+    fig.update_layout(
+        title="Bid Level Selection Frequency",
+        xaxis_title="Bid Multiplier",
+        yaxis_title="Times Selected",
+        barmode="group",
+        legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1),
+        margin=dict(l=20, r=20, t=50, b=20),
+        height=350,
+    )
+
+    oracle_arm = simulation_data.get("oracle", {}).get("best_arm")
+    if oracle_arm:
+        fig.add_annotation(
+            text=f"Oracle best: {float(oracle_arm):.2f}x",
+            xref="paper", yref="paper",
+            x=0.98, y=0.98,
+            showarrow=False,
+            font=dict(size=11, color="green"),
+            xanchor="right",
+        )
+
+    return fig
+
+
+def beliefs_chart(beliefs: dict) -> go.Figure:
+    """
+    Visualize the bandit's posterior beliefs about each arm.
+    Shows mean ± uncertainty for each bid level.
+    """
+    if not beliefs:
+        return _empty_chart("No belief data")
+
+    arms = sorted(beliefs.keys(), key=lambda x: float(x))
+    means = [beliefs[a]["mean"] for a in arms]
+    uncertainties = [beliefs[a]["uncertainty"] for a in arms]
+    n_obs = [beliefs[a].get("n_obs", 0) for a in arms]
+
+    labels = [f"{float(a):.2f}x" for a in arms]
+
+    fig = go.Figure()
+
+    # Uncertainty bars
+    fig.add_trace(go.Bar(
+        x=labels,
+        y=means,
+        error_y=dict(type="data", array=uncertainties, visible=True),
+        marker_color=["#4F8BF9" if m == max(means) else "#B0C4DE" for m in means],
+        text=[f"n={n}" for n in n_obs],
+        textposition="outside",
+    ))
+
+    fig.update_layout(
+        title="Bandit Posterior Beliefs (Mean ± Uncertainty)",
+        xaxis_title="Bid Multiplier",
+        yaxis_title="Expected Profit ($)",
+        margin=dict(l=20, r=20, t=50, b=20),
+        height=350,
+        showlegend=False,
+    )
+
+    return fig
+
+
+def budget_allocation_chart(current: dict, recommended: dict) -> go.Figure:
+    """
+    Side-by-side comparison of current vs recommended budget allocation.
+    """
+    if not current or not recommended:
+        return _empty_chart("No allocation data")
+
+    # Shorten campaign names for display
+    def shorten(name):
+        return name.replace("Google - ", "G: ").replace("Meta - ", "M: ").replace("Amazon - ", "A: ")
+
+    campaigns = list(current.keys())
+    short_names = [shorten(c) for c in campaigns]
+    current_vals = [current[c] for c in campaigns]
+    recommended_vals = [recommended.get(c, 0) for c in campaigns]
+
+    fig = go.Figure()
+
+    fig.add_trace(go.Bar(
+        x=short_names,
+        y=current_vals,
+        name="Current",
+        marker_color="#B0C4DE",
+    ))
+
+    fig.add_trace(go.Bar(
+        x=short_names,
+        y=recommended_vals,
+        name="Recommended",
+        marker_color="#4F8BF9",
+    ))
+
+    fig.update_layout(
+        title="Budget Allocation: Current vs Recommended ($/day)",
+        xaxis_title="Campaign",
+        yaxis_title="Daily Budget ($)",
+        barmode="group",
+        legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1),
+        margin=dict(l=20, r=20, t=50, b=40),
+        height=400,
+    )
+
+    return fig
+
+
 def _empty_chart(message: str) -> go.Figure:
     """Return a blank chart with a centered message."""
     fig = go.Figure()

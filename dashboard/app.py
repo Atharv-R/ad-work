@@ -25,6 +25,7 @@ import streamlit as st
 import sys
 import pandas as pd
 from pathlib import Path
+import json
 
 # --- Path setup (BEFORE any adwork imports) ---
 ROOT = Path(__file__).resolve().parent.parent
@@ -465,53 +466,201 @@ elif page == "📈 Forecasts":
             st.info("No Google Trends data loaded. Trends are optional — forecasting works without them.")
 
 
+
 elif page == "🎯 Recommendations":
     st.title("🎯 Optimization Recommendations")
 
     if not data_loaded:
         no_data_message()
     else:
-        st.info("🤖 The LLM agent optimization loop will be built in Phases 4–5.")
-        st.divider()
-        st.subheader("Example Recommendations (Preview)")
+        # Check for agent output
+        agent_output_path = ROOT / "data" / "processed" / "agent_output.json"
+        sim_path = ROOT / "data" / "processed" / "simulation_results.json"
+        alloc_path = ROOT / "data" / "processed" / "allocation_results.json"
 
-        examples = [
-            {
-                "action_type": "bid_adjustment",
-                "title": "Increase Google Shopping bid +8%",
-                "reasoning": "Shopping ROAS is 4.2x (above 3.0x target). Bandit model suggests higher bid captures additional profitable clicks.",
-                "confidence": "high",
-                "campaign_name": "Google - Shopping",
-            },
-            {
-                "action_type": "budget_reallocation",
-                "title": "Shift $50/day from Meta Interest → Meta Remarketing",
-                "reasoning": "Meta Interest ROAS declined to 0.9x (below break-even). Remarketing maintains 3.8x ROAS with room to scale.",
-                "confidence": "high",
-                "campaign_name": "Meta - Prospecting (Interest)",
-            },
-            {
-                "action_type": "creative_rotation",
-                "title": "Refresh ad creative for Meta Lookalike",
-                "reasoning": "CTR dropped 15% over 3 weeks while impressions remained stable. Creative refresh typically recovers 50–70% of lost CTR.",
-                "confidence": "medium",
-                "campaign_name": "Meta - Prospecting (Lookalike)",
-            },
-            {
-                "action_type": "bid_adjustment",
-                "title": "Decrease Amazon Auto bid -10%",
-                "reasoning": "Auto-targeting ACOS is 28%, above the 22% target. Manual campaign performs better for the same keywords.",
-                "confidence": "medium",
-                "campaign_name": "Amazon - Sponsored Products (Auto)",
-            },
-        ]
+        # Run Agent button
+        col_run, col_clear = st.columns([3, 1])
 
-        for i in range(0, len(examples), 2):
-            cols = st.columns(2)
-            for j, col in enumerate(cols):
-                if i + j < len(examples):
-                    with col:
-                        recommendation_card(**examples[i + j], card_key=f"example_{i + j}")
+        with col_run:
+            if st.button("🤖 Run Optimization Agent", type="primary", use_container_width=True):
+                with st.spinner("Running LangGraph agent pipeline..."):
+                    try:
+                        from adwork.pipeline.daily_loop import run_daily_optimization
+                        result = run_daily_optimization()
+
+                        # Also run simulation for charts
+                        from adwork.models.bandit import run_bandit_simulation
+                        import json as json_lib
+
+                        demo_camp = db.execute(
+                            "SELECT * FROM campaigns WHERE platform='google' LIMIT 1"
+                        ).df()
+                        if not demo_camp.empty:
+                            cid = demo_camp.iloc[0]["campaign_id"]
+                            dm = db.execute(
+                                f"SELECT * FROM daily_metrics WHERE campaign_id='{cid}' ORDER BY date"
+                            ).df().tail(30)
+                            if not dm.empty:
+                                t_i = dm["impressions"].sum()
+                                t_cl = dm["clicks"].sum()
+                                t_co = dm["conversions"].sum()
+                                t_sp = dm["spend"].sum()
+                                t_re = dm["revenue"].sum()
+                                sim = run_bandit_simulation(
+                                    base_metrics={
+                                        "base_impressions": t_i / len(dm),
+                                        "base_ctr": t_cl / t_i if t_i > 0 else 0.03,
+                                        "base_cpc": t_sp / t_cl if t_cl > 0 else 1.5,
+                                        "base_conv_rate": t_co / t_cl if t_cl > 0 else 0.03,
+                                        "base_aov": t_re / t_co if t_co > 0 else 200,
+                                    },
+                                    n_rounds=90,
+                                )
+                                proc = ROOT / "data" / "processed"
+                                proc.mkdir(parents=True, exist_ok=True)
+                                with open(proc / "simulation_results.json", "w") as f:
+                                    json_lib.dump({
+                                        "strategies": [s.model_dump() for s in sim["strategies"]],
+                                        "oracle": sim["oracle"],
+                                        "n_rounds": sim["n_rounds"],
+                                        "ts_beliefs": sim["ts_beliefs"],
+                                    }, f, indent=2)
+
+                        n_recs = len(result.get("final_recommendations", []))
+                        st.success(f"✅ Agent complete: {n_recs} recommendations generated")
+                        st.rerun()
+
+                    except Exception as e:
+                        st.error(f"❌ Agent failed: {e}")
+                        import traceback
+                        st.code(traceback.format_exc())
+
+        with col_clear:
+            st.markdown("<br>", unsafe_allow_html=True)
+            if st.button("🗑️ Clear", use_container_width=True):
+                from adwork.db.queries import clear_recommendations
+                clear_recommendations()
+                for f in (ROOT / "data" / "processed").glob("*.json"):
+                    f.unlink(missing_ok=True)
+                st.rerun()
+
+        # ── Display Agent Output ──
+        if agent_output_path.exists():
+            with open(agent_output_path) as f:
+                agent_data = json.load(f)
+
+            # Daily Summary
+            summary = agent_data.get("daily_summary", "")
+            if summary:
+                st.divider()
+                health = agent_data.get("portfolio_health", "normal")
+                health_emoji = "🚨" if health == "critical" else "✅"
+                st.subheader(f"{health_emoji} Daily Brief")
+                st.markdown(summary)
+
+            # Agent thought process
+            agent_log = agent_data.get("agent_log", [])
+            if agent_log:
+                with st.expander("🤖 Agent Thought Process", expanded=False):
+                    for entry in agent_log:
+                        st.markdown(f"- {entry}")
+                    errors = agent_data.get("errors", [])
+                    if errors:
+                        st.markdown("**Errors:**")
+                        for err in errors:
+                            st.markdown(f"- ⚠️ {err}")
+                    provider = agent_data.get("llm_provider", "unknown")
+                    ts = agent_data.get("run_timestamp", "")[:19]
+                    st.caption(f"LLM: {provider} | Run: {ts}")
+
+            # Recommendations
+            recs = agent_data.get("final_recommendations", [])
+            if recs:
+                st.divider()
+                st.subheader(f"📋 Recommendations ({len(recs)})")
+
+                sorted_recs = sorted(recs, key=lambda r: r.get("priority", 99))
+                cols = st.columns(2)
+                for idx, rec in enumerate(sorted_recs):
+                    with cols[idx % 2]:
+                        action_type = rec.get("action_type", "bid_adjustment")
+                        title = f"#{rec.get('priority', '?')} {rec.get('action_summary', 'Action')}"
+
+                        recommendation_card(
+                            action_type=action_type,
+                            title=title,
+                            reasoning=rec.get("reasoning", ""),
+                            confidence=rec.get("confidence", "medium"),
+                            campaign_name=rec.get("campaign_name", ""),
+                            card_key=f"agent_{idx}",
+                        )
+
+        else:
+            st.info(
+                "👆 Click **Run Optimization Agent** to execute the full LangGraph pipeline:\n\n"
+                "1. Gather campaign data\n"
+                "2. LLM analyzes performance\n"
+                "3. Route by portfolio health\n"
+                "4. Run Thompson Sampling optimization\n"
+                "5. LLM synthesizes recommendations with reasoning"
+            )
+        # ── Simulation Charts ──
+        if sim_path.exists():
+            st.divider()
+            st.subheader("🧪 Bandit Simulation (Validation)")
+
+            with open(sim_path) as f:
+                sim_data = json.load(f)
+
+            from components.charts import (
+                regret_curve_chart,
+                arm_selection_chart,
+                beliefs_chart,
+                budget_allocation_chart,
+            )
+
+            col_r, col_a = st.columns(2)
+            with col_r:
+                st.plotly_chart(regret_curve_chart(sim_data), use_container_width=True)
+            with col_a:
+                st.plotly_chart(arm_selection_chart(sim_data), use_container_width=True)
+
+            ts_beliefs = sim_data.get("ts_beliefs", {})
+            if ts_beliefs:
+                st.plotly_chart(beliefs_chart(ts_beliefs), use_container_width=True)
+
+            # Summary table
+            st.caption("**Simulation Summary (90 rounds)**")
+            sim_summary = []
+            for s in sim_data.get("strategies", []):
+                final_regret = s["cumulative_regret"][-1] if s.get("cumulative_regret") else 0
+                sim_summary.append({
+                    "Strategy": s["strategy"],
+                    "Total Reward": f"${s['total_reward']:,.0f}",
+                    "Final Regret": f"${final_regret:,.0f}",
+                })
+            oracle = sim_data.get("oracle", {})
+            sim_summary.append({
+                "Strategy": "Oracle (best possible)",
+                "Total Reward": f"${oracle.get('total_reward', 0):,.0f}",
+                "Final Regret": "$0",
+            })
+            st.dataframe(pd.DataFrame(sim_summary), use_container_width=True, hide_index=True)
+
+            # Budget allocation chart
+            if alloc_path.exists():
+                with open(alloc_path) as f:
+                    alloc_data = json.load(f)
+
+                st.divider()
+                st.subheader("💰 Budget Allocation")
+                st.plotly_chart(
+                    budget_allocation_chart(
+                        alloc_data.get("current", {}),
+                        alloc_data.get("recommended", {}),
+                    ),
+                    use_container_width=True,
+                )
 
 
 elif page == "🔍 Competitors":

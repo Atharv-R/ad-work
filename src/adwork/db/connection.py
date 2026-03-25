@@ -95,6 +95,35 @@ def _initialize_tables(conn: duckdb.DuckDBPyConnection) -> None:
         )
     """)
 
+    # ── inside _initialize_tables(conn) ──────────────────────────────
+    conn.execute("""
+        CREATE TABLE IF NOT EXISTS competitor_ads (
+            ad_id VARCHAR PRIMARY KEY,
+            advertiser_name VARCHAR NOT NULL,
+            platform VARCHAR NOT NULL,
+            ad_copy TEXT NOT NULL,
+            headline VARCHAR DEFAULT '',
+            cta VARCHAR DEFAULT '',
+            category VARCHAR DEFAULT '',
+            first_seen DATE,
+            last_seen DATE,
+            is_active BOOLEAN DEFAULT TRUE,
+            spend_tier VARCHAR DEFAULT 'medium',
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        )
+    """)
+    conn.execute("""
+        CREATE TABLE IF NOT EXISTS competitor_clusters (
+            cluster_id INTEGER NOT NULL,
+            cluster_label VARCHAR NOT NULL,
+            top_terms TEXT NOT NULL,
+            n_ads INTEGER NOT NULL,
+            analysis_date DATE NOT NULL,
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            PRIMARY KEY (cluster_id, analysis_date)
+        )
+    """)
+
     logger.info("Database tables initialized")
 
 

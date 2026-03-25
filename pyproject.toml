@@ -33,6 +33,10 @@ dependencies = [
     # LLM
     "groq>=0.4",
     "openai>=1.30",
+
+    # Agent framework
+    "langgraph>=0.4",
+    "langchain-core>=0.3",
     
     # Dashboard
     "streamlit>=1.35",
