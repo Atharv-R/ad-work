@@ -35,7 +35,6 @@ def gather_campaign_data() -> dict:
     start, end = date_range
     campaigns_df = get_all_campaigns()
     kpis = get_kpis(start, end)
-    summary = get_campaign_summary(start, end)
 
     # Per-campaign detailed metrics (last 30 days + trend)
     campaign_details = []

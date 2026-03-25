@@ -177,7 +177,6 @@ class BidRecommender:
 
         # Determine confidence from bandit uncertainty
         best_belief = beliefs[best_arm]
-        uncertainty = best_belief["uncertainty"]
 
         # Compare best arm vs second best — larger gap = higher confidence
         sorted_beliefs = sorted(beliefs.items(), key=lambda x: x[1]["mean"], reverse=True)

@@ -1,5 +1,5 @@
 {
-  "run_timestamp": "2026-03-25T01:19:36.487112",
+  "run_timestamp": "2026-03-25T01:30:19.722013",
   "llm_provider": "",
   "portfolio_health": "normal",
   "performance_analysis": {},
@@ -11,8 +11,8 @@
       "campaign_id": "test_001",
       "campaign_name": "Test Google Campaign",
       "action_type": "bid_adjustment",
-      "action_summary": "increase bid 20%",
-      "reasoning": "Current ROAS is 2.9x (below 3.0x target). Performance is declining (-22.9% ROAS change over 14 days). Thompson Sampling recommends increasing bid by 20% (expected ROAS: 2.3x). The model has low confidence based on posterior convergence.",
+      "action_summary": "decrease bid 5%",
+      "reasoning": "Current ROAS is 2.9x (below 3.0x target). Performance is declining (-22.9% ROAS change over 14 days). Thompson Sampling recommends decreasing bid by 5% to improve efficiency (expected ROAS: 2.9x).",
       "confidence": "low",
       "priority": 1
     }

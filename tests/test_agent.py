@@ -122,7 +122,6 @@ def test_graph_runs_without_llm():
     from adwork.agent.graph import build_optimization_graph
     from adwork.agent.llm_client import reset_client
 
-    original_key = os.environ.get("GROQ_API_KEY", "")
     os.environ["GROQ_API_KEY"] = "invalid_key_for_testing"
     reset_client()
 

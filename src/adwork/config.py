@@ -64,7 +64,6 @@ class Settings(BaseSettings):
     "env_file": ".env",
     "env_file_encoding": "utf-8",
     "case_sensitive": False,
-    "env_file_encoding": "utf-8",
     "extra": "ignore",          # Don't crash on extra env vars
     }
     
