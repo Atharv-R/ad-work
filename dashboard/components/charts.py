@@ -766,3 +766,123 @@ def _empty_chart(message: str) -> go.Figure:
     )
 
     return fig
+
+# ── Competitor charts ────────────────────────────────────────────────
+
+def competitor_cluster_scatter(ads_df: pd.DataFrame) -> go.Figure:
+    """2D PCA scatter plot coloured by cluster label."""
+    fig = go.Figure()
+
+    if "cluster_label" not in ads_df.columns:
+        return _empty_chart("Run competitor analysis first")
+
+    colors = px.colors.qualitative.Set2
+    labels = ads_df["cluster_label"].unique()
+
+    for i, label in enumerate(sorted(labels)):
+        mask = ads_df["cluster_label"] == label
+        subset = ads_df[mask]
+        fig.add_trace(go.Scatter(
+            x=subset["x"],
+            y=subset["y"],
+            mode="markers",
+            name=label,
+            marker=dict(size=10, color=colors[i % len(colors)], opacity=0.8),
+            hovertemplate=(
+                "<b>%{customdata[0]}</b><br>"
+                "%{customdata[1]}<br><br>"
+                "<i>%{customdata[2]:.60s}...</i>"
+                "<extra></extra>"
+            ),
+            customdata=subset[["advertiser_name", "category", "ad_copy"]].values,
+        ))
+
+    fig.update_layout(
+        title="Competitor Ad Clusters (PCA Projection)",
+        xaxis_title="Component 1",
+        yaxis_title="Component 2",
+        height=500,
+        legend_title="Strategy",
+        template="plotly_white",
+    )
+    return fig
+
+
+def competitor_strategy_heatmap(strategy_matrix: pd.DataFrame) -> go.Figure:
+    """Advertiser × strategy heatmap."""
+    if strategy_matrix.empty:
+        return _empty_chart("No strategy data")
+
+    fig = go.Figure(go.Heatmap(
+        z=strategy_matrix.values,
+        x=strategy_matrix.columns.tolist(),
+        y=strategy_matrix.index.tolist(),
+        colorscale="Blues",
+        text=strategy_matrix.values,
+        texttemplate="%{text}",
+        hovertemplate="<b>%{y}</b> → %{x}<br>Ads: %{z}<extra></extra>",
+    ))
+    fig.update_layout(
+        title="Advertiser Strategy Mix",
+        xaxis_title="Strategy Cluster",
+        yaxis_title="Advertiser",
+        height=max(350, len(strategy_matrix) * 45),
+        template="plotly_white",
+    )
+    return fig
+
+
+def competitor_cluster_bars(clusters: list[dict]) -> go.Figure:
+    """Bar chart of ads per cluster with top terms annotation."""
+    if not clusters:
+        return _empty_chart("No clusters")
+
+    labels = [c["label"] for c in clusters]
+    counts = [c["n_ads"] for c in clusters]
+    terms = [", ".join(c["top_terms"][:5]) for c in clusters]
+
+    colors = px.colors.qualitative.Set2
+
+    fig = go.Figure(go.Bar(
+        x=labels,
+        y=counts,
+        marker_color=[colors[i % len(colors)] for i in range(len(labels))],
+        hovertemplate="<b>%{x}</b><br>Ads: %{y}<br>Top terms: %{customdata}<extra></extra>",
+        customdata=terms,
+    ))
+    fig.update_layout(
+        title="Ads per Strategy Cluster",
+        xaxis_title="Strategy",
+        yaxis_title="Number of Ads",
+        height=400,
+        template="plotly_white",
+    )
+    return fig
+
+
+def competitor_platform_breakdown(ads_df: pd.DataFrame) -> go.Figure:
+    """Stacked bar: platform distribution per advertiser."""
+    if ads_df.empty:
+        return _empty_chart("No competitor data")
+
+    ct = ads_df.groupby(["advertiser_name", "platform"]).size().unstack(fill_value=0)
+    platform_colors = {"google": "#4285F4", "meta": "#1877F2", "amazon": "#FF9900"}
+
+    fig = go.Figure()
+    for platform in ct.columns:
+        fig.add_trace(go.Bar(
+            x=ct.index,
+            y=ct[platform],
+            name=platform.title(),
+            marker_color=platform_colors.get(platform, "#999"),
+        ))
+
+    fig.update_layout(
+        barmode="stack",
+        title="Platform Mix by Advertiser",
+        xaxis_title="Advertiser",
+        yaxis_title="Number of Ads",
+        height=400,
+        template="plotly_white",
+    )
+    return fig

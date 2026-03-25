@@ -89,6 +89,19 @@ except Exception as e:
     db_connected = False
     db_error = str(e)
 
+from adwork.data.competitors import (
+        seed_competitor_data,
+        ingest_competitor_csv,
+    )
+from adwork.models.competitor_nlp import CompetitorAnalyzer
+from adwork.db.queries import (
+        get_competitor_ads,
+        has_competitor_data,
+        get_competitor_advertisers,
+        store_cluster_results,
+        clear_competitor_data,
+    )
+
 try:
     from components.charts import (
         spend_by_platform_chart,
@@ -108,6 +121,12 @@ except Exception as e:
     components_loaded = False
     components_error = str(e)
 
+from components.charts import (
+    competitor_cluster_scatter,
+    competitor_cluster_bars,
+    competitor_strategy_heatmap,
+    competitor_platform_breakdown,
+)
 
 # --- Show import errors if anything failed ---
 if not config_loaded or not db_connected or not components_loaded:
@@ -662,11 +681,184 @@ elif page == "🎯 Recommendations":
                     use_container_width=True,
                 )
 
-
+# ── 🔍 Competitors page ─────────────────────────────────────────
 elif page == "🔍 Competitors":
-    st.title("🔍 Competitor Intelligence")
-    st.info("🔍 Competitor monitoring will be built in Phase 6.")
+    st.header("🔍 Competitor Intelligence")
 
+    
+
+    # ── Sidebar controls for this page ──────────────────────────
+    st.sidebar.markdown("---")
+    st.sidebar.subheader("Competitor Data")
+
+    col_s1, col_s2 = st.sidebar.columns(2)
+    with col_s1:
+        if st.button("🎲 Load Demo Data", use_container_width=True):
+            seed_competitor_data()
+            st.rerun()
+    with col_s2:
+        if st.button("🗑️ Clear Data", use_container_width=True):
+            clear_competitor_data()
+            st.rerun()
+
+    # ── Upload section ──────────────────────────────────────────
+    with st.expander("📤 Upload Competitor CSV", expanded=not has_competitor_data()):
+        st.markdown(
+            "Upload a CSV with at least an **ad copy** column. "
+            "Accepted column names: `ad_copy`, `copy`, `body`, `text`, `description`, `ad_text`."
+        )
+        uploaded = st.file_uploader(
+            "Choose CSV", type=["csv"], key="comp_upload"
+        )
+        if uploaded is not None:
+            try:
+                upload_df = pd.read_csv(uploaded)
+                st.dataframe(upload_df.head(), use_container_width=True)
+                if st.button("Import Competitor Ads"):
+                    ads = ingest_competitor_csv(upload_df)
+                    st.success(f"Imported {len(ads)} competitor ads")
+                    st.rerun()
+            except Exception as e:
+                st.error(f"Upload failed: {e}")
+
+    if not has_competitor_data():
+        st.info("No competitor data yet. Load demo data or upload a CSV above.")
+        st.stop()
+
+    # ── Load data ───────────────────────────────────────────────
+    all_ads_df = get_competitor_ads()
+    n_ads = len(all_ads_df)
+    n_advertisers = all_ads_df["advertiser_name"].nunique()
+    n_platforms = all_ads_df["platform"].nunique()
+
+    # ── KPI row ─────────────────────────────────────────────────
+    k1, k2, k3, k4 = st.columns(4)
+    k1.metric("Total Ads", n_ads)
+    k2.metric("Advertisers", n_advertisers)
+    k3.metric("Platforms", n_platforms)
+    k4.metric("Categories", all_ads_df["category"].nunique())
+
+    st.markdown("---")
+
+    # ── Run analysis ────────────────────────────────────────────
+    n_clusters = st.slider("Number of clusters", 3, 8, 5)
+
+    if st.button("🔬 Run Cluster Analysis", type="primary", use_container_width=True):
+        with st.spinner("Clustering competitor ads..."):
+            analyzer = CompetitorAnalyzer(n_clusters=n_clusters)
+            results = analyzer.analyze(all_ads_df)
+
+            # Store in session state so charts persist
+            st.session_state["comp_results"] = results
+
+            # Persist cluster results to DB
+            from datetime import date
+            store_cluster_results(results["clusters"], str(date.today()))
+
+        st.success(
+            f"Clustered {n_ads} ads into {len(results['clusters'])} strategies"
+        )
+
+    # ── Display results ─────────────────────────────────────────
+    if "comp_results" not in st.session_state:
+        st.info("Click **Run Cluster Analysis** above to analyse competitor ads.")
+        st.stop()
+
+    results = st.session_state["comp_results"]
+    clusters = results["clusters"]
+    ads_df = results["ads_df"]
+    strategy_matrix = results["strategy_matrix"]
+
+    # ── Charts ──────────────────────────────────────────────────
+    tab_scatter, tab_strategy, tab_explore = st.tabs([
+        "🗺️ Cluster Map", "📊 Strategy Analysis", "🔎 Explore Ads"
+    ])
+
+    with tab_scatter:
+        col1, col2 = st.columns([3, 2])
+        with col1:
+            st.plotly_chart(
+                competitor_cluster_scatter(ads_df),
+                use_container_width=True,
+            )
+        with col2:
+            st.plotly_chart(
+                competitor_cluster_bars(clusters),
+                use_container_width=True,
+            )
+
+        # Cluster detail expanders
+        for c in clusters:
+            with st.expander(f"**{c['label']}** — {c['n_ads']} ads"):
+                st.markdown(f"**Top terms:** {', '.join(c['top_terms'][:8])}")
+                cluster_ads = ads_df[ads_df["cluster"] == c["cluster_id"]]
+                for _, row in cluster_ads.head(3).iterrows():
+                    st.markdown(
+                        f"> **{row.get('advertiser_name', '')}** "
+                        f"({row.get('platform', '')}): "
+                        f"*{row.get('headline', '')}*\n> {row['ad_copy']}"
+                    )
+
+    with tab_strategy:
+
+        st.plotly_chart(
+            competitor_strategy_heatmap(strategy_matrix),
+            use_container_width=True,
+        )
+        st.plotly_chart(
+            competitor_platform_breakdown(ads_df),
+            use_container_width=True,
+        )
+
+        # Key insight callout
+        if not strategy_matrix.empty:
+            dominant = strategy_matrix.idxmax(axis=1)
+            st.markdown("#### Key Observations")
+            for adv, strat in dominant.items():
+                count = strategy_matrix.loc[adv, strat]
+                st.markdown(f"- **{adv}** leans toward **{strat}** ({count} ads)")
+
+    with tab_explore:
+        # Filters
+        f1, f2, f3 = st.columns(3)
+        with f1:
+            adv_filter = st.selectbox(
+                "Advertiser",
+                ["All"] + get_competitor_advertisers(),
+            )
+        with f2:
+            plat_filter = st.selectbox(
+                "Platform",
+                ["All"] + sorted(all_ads_df["platform"].unique().tolist()),
+            )
+        with f3:
+            cluster_filter = st.selectbox(
+                "Strategy",
+                ["All"] + [c["label"] for c in clusters],
+            )
+
+        filtered = ads_df.copy()
+        if adv_filter != "All":
+            filtered = filtered[filtered["advertiser_name"] == adv_filter]
+        if plat_filter != "All":
+            filtered = filtered[filtered["platform"] == plat_filter]
+        if cluster_filter != "All":
+            filtered = filtered[filtered["cluster_label"] == cluster_filter]
+
+        st.markdown(f"**Showing {len(filtered)} ads**")
+
+        for _, row in filtered.iterrows():
+            with st.container():
+                st.markdown(
+                    f"**{row.get('headline', 'No headline')}** · "
+                    f"`{row.get('advertiser_name', '')}` · "
+                    f"`{row.get('platform', '')}` · "
+                    f"🏷️ {row.get('cluster_label', 'Unclustered')}"
+                )
+                st.caption(row["ad_copy"])
+                if row.get("cta"):
+                    st.markdown(f"CTA: **{row['cta']}**")
+                st.markdown("---")
 
 elif page == "📤 Upload Data":
     st.title("📤 Upload Campaign Data")
