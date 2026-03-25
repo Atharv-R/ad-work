@@ -111,16 +111,14 @@ try:
     )
     from components.charts import (
         campaign_performance_table,
+        competitor_cluster_bars,
+        competitor_cluster_scatter,
+        competitor_platform_breakdown,
+        competitor_strategy_heatmap,
         platform_pie_chart,
         roas_trend_chart,
         spend_by_platform_chart,
         trends_chart,
-    )
-    from components.charts import (
-    competitor_cluster_bars,
-    competitor_cluster_scatter,
-    competitor_platform_breakdown,
-    competitor_strategy_heatmap,
     )
     components_loaded = True
     components_error = None

@@ -9,7 +9,7 @@ advertising recommendations.
 > Upload your campaign data → Get demand forecasts → Receive bid and budget 
 > recommendations with plain-English reasoning attached to every decision.
 
-**[Live Demo]({{https://ad-work-lrikjcynfa8feptsuauuoz.streamlit.app}})**
+**[Live Demo](https://ad-work-lrikjcynfa8feptsuauuoz.streamlit.app)**
 
 ![Python](https://img.shields.io/badge/Python-3.11-blue)
 ![CI](https://github.com/{{YOUR_GITHUB_USERNAME}}/ad-work/actions/workflows/ci.yml/badge.svg)
@@ -23,13 +23,10 @@ advertising recommendations.
 Digital advertisers manage campaigns across Google, Meta, and Amazon — each with different metrics, bid strategies, and budget constraints. Decisions are manual, reactive, and rarely explained. Ad-Work automates the full loop: monitor → forecast → optimize → explain.
 
 ## Architecture
+gather data → analyze → forecast → optimize → synthesize
 |---|
-| LangGraph Agent |
-| gather data → analyze → forecast → optimize → synthesize |
-| (conditional routing: normal vs critical)|
-|---|
-|Forecaster| CTR Model | Bandit | Budget Allocation 
-|Prophet + statsmodels| LightGBM on Criteo data | Thompson Sampling | Cross-campaign reallocation
+|Forecaster| CTR Model | Bandit | Budget Allocation | LLM |
+|Prophet + statsmodels| LightGBM on Criteo data | Thompson Sampling | Cross-campaign reallocation | LangGraph Agent
 |---|
 |DuckDB|
 | campaigns · daily_metrics · forecasts · recommendations |
@@ -96,19 +93,23 @@ Digital advertisers manage campaigns across Google, Meta, and Amazon — each wi
 
 ### Setup
 
-bash
+```bash
 git clone https://github.com/{{YOUR_GITHUB_USERNAME}}/ad-work.git
 cd ad-work
 uv sync
+```
 
-Create a .env file:
+### Create a .env file:
+```python
 LLM_PROVIDER=groq
 GROQ_API_KEY=your_groq_key_here
 OPENAI_API_KEY=
 DUCKDB_PATH=data/adwork.duckdb
 LOG_LEVEL=INFO
+```
 
-Run: 
+### Run:
+```bash 
 # Seed demo data (10 campaigns × 90 days)
 uv run python scripts/seed_demo.py
 
@@ -121,35 +122,24 @@ uv run python scripts/run_optimization.py
 # Run the LLM agent
 uv run python scripts/run_agent.py
 
-# Launch dashboard
+### Launch dashboard
 uv run streamlit run dashboard/app.py
+```
 
-Train CTR Model (optional):
+### Train CTR Model (optional):
+```bash
 # Quick — synthetic data
 uv run python scripts/train_ctr.py --synthetic
 
-# Full — real Criteo data (downloads ~4GB)
+### Full — real Criteo data (downloads ~4GB)
 uv run python scripts/download_criteo.py
 uv run python scripts/train_ctr.py --sample-size 1000000
+```
 
-Tests:
+### Tests:
+```bash
 uv run pytest tests/ -v
-
-Project Structure:
-ad-work/
-├── dashboard/
-│   ├── app.py                    # Streamlit app (all pages)
-│   └── components/               # Charts, cards, UI helpers
-├── scripts/                      # CLI entry points
-├── src/adwork/
-│   ├── agent/                    # LangGraph agent, LLM client, prompts
-│   ├── data/                     # Ingestion, schemas, trends, competitors
-│   ├── db/                       # DuckDB connection + queries
-│   ├── models/                   # Forecaster, CTR, bandit, competitor NLP
-│   ├── optimization/             # Bid recommender, budget allocator
-│   └── pipeline/                 # Daily optimization loop
-├── tests/                        # pytest suite
-└── models/ctr/                   # Trained model artifacts
+```
 
 ## Upload your own data
 Ad-Work accepts CSV exports from Google Ads, Meta Ads, and Amazon Ads. The system auto-detects the platform format based on column names.
