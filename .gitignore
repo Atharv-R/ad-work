@@ -235,5 +235,15 @@ uv.lock
 data/raw/criteo/
 
 # Model artifacts (optional: remove this line to commit trained models)
-# models/ctr/*.lgb
-# models/ctr/*.joblib
+models/ctr/*.lgb
+models/ctr/*.joblib
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Data
+data/adwork.duckdb
+data/ci_test.duckdb
+data/raw/
