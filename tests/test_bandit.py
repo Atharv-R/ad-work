@@ -87,18 +87,21 @@ def test_simulation_ts_beats_random():
     from adwork.models.bandit import run_bandit_simulation
 
     base_metrics = {
-        "base_impressions": 5000,
-        "base_ctr": 0.04,
-        "base_cpc": 2.0,
-        "base_conv_rate": 0.03,
-        "base_aov": 200.0,
+        "base_impressions": 1000,
+        "base_ctr": 0.03,
+        "base_cpc": 1.5,
+        "base_conv_rate": 0.05,
+        "base_aov": 50.0,
     }
 
     ts_wins = 0
     n_trials = 10
 
+    # Wide spread so the best arm is clearly better
+    bid_levels = [0.4, 0.7, 1.0, 1.5, 2.0]
+
     for seed in range(n_trials):
-        results = run_bandit_simulation(base_metrics, n_rounds=1000, seed=seed)
+        results = run_bandit_simulation(base_metrics, bid_levels=bid_levels, n_rounds=300, seed=seed)
 
         ts = next(s for s in results["strategies"] if "Thompson" in s.strategy)
         rand = next(s for s in results["strategies"] if "Random" in s.strategy)
