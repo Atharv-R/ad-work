@@ -593,6 +593,91 @@ elif page == "⚙️ Settings":
 
     st.divider()
 
+    # ── CTR Model Info ──
+    st.subheader("🧠 CTR Prediction Model")
+
+    try:
+        from adwork.models.registry import ctr_model_exists, get_ctr_metadata
+
+        if ctr_model_exists():
+            meta = get_ctr_metadata()
+            if meta:
+                ev = meta.get("evaluation", {})
+
+                # Metrics row
+                m1, m2, m3, m4 = st.columns(4)
+                with m1:
+                    st.metric("AUC-ROC", f"{ev.get('auc_roc', 0):.4f}")
+                with m2:
+                    st.metric("Log Loss", f"{ev.get('log_loss', 0):.4f}")
+                with m3:
+                    st.metric("PR-AUC", f"{ev.get('pr_auc', 0):.4f}")
+                with m4:
+                    st.metric("Cal. Error", f"{ev.get('calibration_error', 0):.4f}")
+
+                # Details
+                with st.expander("Model Details"):
+                    det_col1, det_col2 = st.columns(2)
+                    with det_col1:
+                        st.markdown(f"**Trained:** {meta.get('trained_at', 'Unknown')[:19]}")
+                        st.markdown(f"**Data:** {meta.get('data_source', 'Unknown')}")
+                        st.markdown(f"**Sample Size:** {meta.get('sample_size', 'Unknown'):,}")
+                    with det_col2:
+                        st.markdown(f"**Best Iteration:** {meta.get('best_iteration', 'Unknown')}")
+                        st.markdown(f"**Test Size:** {ev.get('test_size', 'Unknown'):,}")
+                        st.markdown(f"**Base Rate:** {ev.get('base_rate', 0):.4f}")
+
+                # Feature importance
+                feat_imp = ev.get("feature_importance", {})
+                if feat_imp:
+                    with st.expander("Feature Importance (Top 15)"):
+                        imp_df = pd.DataFrame(
+                            list(feat_imp.items()),
+                            columns=["Feature", "Importance (Gain)"],
+                        )
+                        st.bar_chart(imp_df.set_index("Feature"), height=350)
+
+                # Calibration curve
+                cal = ev.get("calibration_curve", {})
+                if cal.get("mean_predicted") and cal.get("fraction_positive"):
+                    with st.expander("Calibration Curve"):
+                        import plotly.graph_objects as go
+
+                        fig = go.Figure()
+                        fig.add_trace(go.Scatter(
+                            x=cal["mean_predicted"],
+                            y=cal["fraction_positive"],
+                            mode="lines+markers",
+                            name="Model",
+                            line=dict(color="#4F8BF9", width=2),
+                        ))
+                        fig.add_trace(go.Scatter(
+                            x=[0, 1], y=[0, 1],
+                            mode="lines", name="Perfect Calibration",
+                            line=dict(color="gray", dash="dash"),
+                        ))
+                        fig.update_layout(
+                            title="Calibration: Predicted vs Actual Click Rate",
+                            xaxis_title="Mean Predicted Probability",
+                            yaxis_title="Fraction of Positives",
+                            height=400,
+                        )
+                        st.plotly_chart(fig, use_container_width=True)
+        else:
+            st.info(
+                "No CTR model trained yet. Train it locally:\n\n"
+                "```bash\n"
+                "uv run python scripts/train_ctr.py            # Real Criteo data\n"
+                "uv run python scripts/train_ctr.py --synthetic # Quick test\n"
+                "```"
+            )
+
+    except Exception as e:
+        st.warning(f"Could not load model info: {e}")
+
+    st.divider()
+
+    # ── Database Statistics ──
     st.subheader("Database Statistics")
     try:
         stats = {
@@ -613,6 +698,7 @@ elif page == "⚙️ Settings":
 
     st.divider()
 
+    # ── LLM Test ──
     st.subheader("Test LLM Connection")
     if st.button("🧪 Send Test Message"):
         with st.spinner("Calling LLM..."):
@@ -625,7 +711,6 @@ elif page == "⚙️ Settings":
                 ])
                 st.success(f"✅ {response.provider}/{response.model}:")
                 st.markdown(f"> {response.content}")
-                st.caption(f"Tokens: {response.usage}")
             except Exception as e:
                 st.error(f"❌ Failed: {e}")
 

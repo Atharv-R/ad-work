@@ -25,6 +25,10 @@ dependencies = [
     # ML - Forecasting
     "prophet>=1.1",
     "statsmodels>=0.14",
+
+    # ML - CTR Prediction
+    "lightgbm>=4.0",
+    "scikit-learn>=1.4",
     
     # LLM
     "groq>=0.4",

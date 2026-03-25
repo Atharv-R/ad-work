@@ -230,3 +230,10 @@ Thumbs.db
 .ipynb_checkpoints/
 
 uv.lock
+
+# Criteo raw data (too large for Git)
+data/raw/criteo/
+
+# Model artifacts (optional: remove this line to commit trained models)
+# models/ctr/*.lgb
+# models/ctr/*.joblib

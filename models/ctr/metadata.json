@@ -1,0 +1,75 @@
+{
+  "model_type": "lightgbm_ctr",
+  "trained_at": "2026-03-24T02:41:46.596910",
+  "best_iteration": 65,
+  "params": {
+    "objective": "binary",
+    "metric": "binary_logloss",
+    "learning_rate": 0.05,
+    "num_leaves": 127,
+    "max_depth": -1,
+    "min_child_samples": 100,
+    "feature_fraction": 0.8,
+    "bagging_fraction": 0.8,
+    "bagging_freq": 5,
+    "lambda_l1": 0.1,
+    "lambda_l2": 0.1,
+    "verbose": -1,
+    "n_jobs": -1
+  },
+  "evaluation": {
+    "auc_roc": 0.735,
+    "log_loss": 0.132,
+    "pr_auc": 0.1171,
+    "calibration_error": 0.0026,
+    "base_rate": 0.033,
+    "test_size": 150000,
+    "calibration_curve": {
+      "fraction_positive": [
+        0.0269,
+        0.1313,
+        0.2167,
+        0.3165,
+        0.4219,
+        0.5345,
+        0.6842,
+        0.3333,
+        0.0
+      ],
+      "mean_predicted": [
+        0.0244,
+        0.134,
+        0.2371,
+        0.339,
+        0.4413,
+        0.5411,
+        0.6312,
+        0.7151,
+        0.8101
+      ]
+    },
+    "feature_importance": {
+      "C12": 96317.32,
+      "C2": 87565.19,
+      "C3": 70627.13,
+      "C24": 40500.96,
+      "C7": 37856.44,
+      "C15": 28472.48,
+      "C5": 24216.62,
+      "C21": 23910.28,
+      "C23": 20580.31,
+      "C11": 20496.62,
+      "I12": 16424.82,
+      "C10": 15746.64,
+      "I11": 13169.98,
+      "C4": 11151.97,
+      "C14": 8824.83
+    }
+  },
+  "data_source": "data\\raw\\criteo\\day_0.tsv.gz",
+  "sample_size": 1000000,
+  "max_cardinality": 10000,
+  "train_size": 700400,
+  "val_size": 149600,
+  "test_size": 150000
+}
