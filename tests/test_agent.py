@@ -2,12 +2,12 @@
 
 """Test the LangGraph agent pipeline."""
 
+import os
+from datetime import date, timedelta
 from unittest.mock import MagicMock, patch
 
-import pytest
-import os
 import numpy as np
-from datetime import date, timedelta
+import pytest
 
 
 @pytest.fixture(autouse=True)
@@ -80,7 +80,7 @@ def test_tools_gather_data():
 
 
 def test_tools_format_for_llm():
-    from adwork.agent.tools import gather_campaign_data, format_campaigns_for_llm
+    from adwork.agent.tools import format_campaigns_for_llm, gather_campaign_data
 
     data = gather_campaign_data()
     text = format_campaigns_for_llm(data)

@@ -2,10 +2,11 @@
 
 """Test the demand forecaster."""
 
-import pytest
-import pandas as pd
-import numpy as np
 from datetime import date, timedelta
+
+import numpy as np
+import pandas as pd
+import pytest
 
 
 def _make_sample_data(days=90):

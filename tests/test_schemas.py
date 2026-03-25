@@ -2,8 +2,9 @@
 
 """Test data schemas and validation."""
 
-import pytest
 from datetime import date
+
+import pytest
 
 
 def test_daily_metrics_computed_fields():
@@ -68,7 +69,7 @@ def test_campaign_empty_id_rejected():
 
 
 def test_detect_platform():
-    from adwork.data.schemas import detect_platform_from_columns, Platform
+    from adwork.data.schemas import Platform, detect_platform_from_columns
 
     # Google-style columns
     assert detect_platform_from_columns(

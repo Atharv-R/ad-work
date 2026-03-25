@@ -24,29 +24,29 @@ The normal path does full analysis including demand forecasts.
 from __future__ import annotations
 
 import json
-from typing import TypedDict, Annotated
-from datetime import datetime
 import operator
+from datetime import datetime
+from typing import Annotated, TypedDict
 
-from langgraph.graph import StateGraph, END
+from langgraph.graph import END, StateGraph
 from loguru import logger
 
 from adwork.agent.llm_client import get_llm_client
 from adwork.agent.prompts import (
-    SYSTEM_PROMPT,
-    PERFORMANCE_ANALYSIS_PROMPT,
     FORECAST_ANALYSIS_PROMPT,
-    SYNTHESIS_PROMPT,
+    PERFORMANCE_ANALYSIS_PROMPT,
     SYNTHESIS_CRITICAL_PROMPT,
+    SYNTHESIS_PROMPT,
+    SYSTEM_PROMPT,
 )
 from adwork.agent.tools import (
+    format_campaigns_for_llm,
     gather_campaign_data,
     gather_forecast_data,
     run_bid_optimization,
     run_budget_optimization,
-    format_campaigns_for_llm,
 )
-from adwork.db.queries import (          
+from adwork.db.queries import (
     clear_recommendations,
     store_recommendations,
 )

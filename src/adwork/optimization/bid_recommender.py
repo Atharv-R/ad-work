@@ -12,14 +12,12 @@ Each recommendation includes:
 - Reasoning: plain-English explanation of why
 """
 
-import json
 import numpy as np
 import pandas as pd
-from datetime import date
 from loguru import logger
-from pydantic import BaseModel, Field
+from pydantic import BaseModel
 
-from adwork.models.bandit import ThompsonSampling, BidResponseModel
+from adwork.models.bandit import BidResponseModel, ThompsonSampling
 
 
 class BidRecommendation(BaseModel):

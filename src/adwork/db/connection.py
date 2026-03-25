@@ -8,8 +8,8 @@ No server needed, just a file.
 
 import duckdb
 from loguru import logger
-from adwork.config import settings
 
+from adwork.config import settings
 
 _connection: duckdb.DuckDBPyConnection | None = None
 

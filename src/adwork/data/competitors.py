@@ -9,7 +9,6 @@ from __future__ import annotations
 
 import uuid
 from datetime import date, timedelta
-from typing import Optional
 
 import numpy as np
 import pandas as pd
@@ -17,7 +16,6 @@ from loguru import logger
 from pydantic import BaseModel, Field
 
 from adwork.db.connection import get_db
-
 
 # ── Data model (the single contract everything normalises to) ───────────
 

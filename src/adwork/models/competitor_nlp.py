@@ -14,7 +14,6 @@ from sklearn.cluster import KMeans
 from sklearn.decomposition import PCA
 from sklearn.feature_extraction.text import TfidfVectorizer
 
-
 # ── Keyword buckets for auto-labelling clusters ─────────────────────────
 
 _LABEL_KEYWORDS: dict[str, list[str]] = {

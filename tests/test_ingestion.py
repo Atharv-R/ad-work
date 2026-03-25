@@ -2,9 +2,9 @@
 
 """Test data ingestion pipeline."""
 
+
 import pandas as pd
 import pytest
-from datetime import date
 
 
 @pytest.fixture(autouse=True)
@@ -18,8 +18,8 @@ def fresh_db(tmp_path):
     close_db()
 
     # Force settings reload
-    from adwork.config import Settings
     import adwork.config
+    from adwork.config import Settings
     adwork.config.settings = Settings(duckdb_path=str(tmp_path / "test.duckdb"))
 
     yield

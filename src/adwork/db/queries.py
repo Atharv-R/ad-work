@@ -7,10 +7,12 @@ Every data access goes through here — the dashboard and agent
 never write raw SQL. This makes it easy to test, cache, and optimize.
 """
 
-import pandas as pd
-from datetime import date, timedelta
-from loguru import logger
 import json
+from datetime import date, timedelta
+
+import pandas as pd
+from loguru import logger
+
 from adwork.db.connection import get_db
 
 

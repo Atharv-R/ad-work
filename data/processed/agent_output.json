@@ -1,0 +1,33 @@
+{
+  "run_timestamp": "2026-03-25T01:19:36.487112",
+  "llm_provider": "",
+  "portfolio_health": "normal",
+  "performance_analysis": {},
+  "forecast_insights": {},
+  "n_bid_recommendations": 1,
+  "n_budget_shifts": 0,
+  "final_recommendations": [
+    {
+      "campaign_id": "test_001",
+      "campaign_name": "Test Google Campaign",
+      "action_type": "bid_adjustment",
+      "action_summary": "increase bid 20%",
+      "reasoning": "Current ROAS is 2.9x (below 3.0x target). Performance is declining (-22.9% ROAS change over 14 days). Thompson Sampling recommends increasing bid by 20% (expected ROAS: 2.3x). The model has low confidence based on posterior convergence.",
+      "confidence": "low",
+      "priority": 1
+    }
+  ],
+  "daily_summary": "Agent synthesis failed \u2014 showing raw optimization results.",
+  "agent_log": [
+    "\ud83d\udcca Gathered data for 1 campaigns",
+    "\u26a0\ufe0f LLM analysis failed \u2014 using default routing",
+    "\u26a0\ufe0f Forecast analysis failed \u2014 continuing without",
+    "\ud83c\udfaf Optimization complete: 1 bid recs + 0 budget shifts",
+    "\u26a0\ufe0f LLM synthesis failed \u2014 using fallback recommendations"
+  ],
+  "errors": [
+    "LLM performance analysis failed: LLM unavailable",
+    "Forecast analysis failed: LLM unavailable",
+    "Synthesis failed: LLM unavailable"
+  ]
+}

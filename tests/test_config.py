@@ -33,7 +33,7 @@ def test_llm_client_factory():
     
     # The client will be created but won't work without a real key
     # That's fine — we're testing the wiring, not the API
-    from adwork.agent.llm_client import GroqClient, OpenAIClient
+    from adwork.agent.llm_client import GroqClient
     
     assert GroqClient.provider_name.fget(None) is None or True  # Class exists
     

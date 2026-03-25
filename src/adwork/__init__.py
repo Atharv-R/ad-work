@@ -5,8 +5,9 @@
 __version__ = "0.1.0"
 
 try:
-    from loguru import logger
     import sys
+
+    from loguru import logger
 
     from adwork.config import settings
 

@@ -26,8 +26,7 @@ of being optimal, not uniformly.
 
 import numpy as np
 from loguru import logger
-from pydantic import BaseModel, Field
-
+from pydantic import BaseModel
 
 # ─── Arm Beliefs ──────────────────────────────────────
 

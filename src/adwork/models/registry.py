@@ -14,10 +14,10 @@ Structure:
 """
 
 import json
-from pathlib import Path
 from datetime import datetime
-from loguru import logger
+from pathlib import Path
 
+from loguru import logger
 
 MODELS_DIR = Path("models")
 
@@ -73,6 +73,7 @@ def load_ctr_artifacts() -> tuple:
         FileNotFoundError if model hasn't been trained yet
     """
     import joblib
+
     from adwork.models.ctr_model import CTRModel
 
     model_dir = MODELS_DIR / "ctr"

@@ -8,13 +8,12 @@ Used in Phase 2 as features for demand forecasting.
 For now, we display it on the dashboard as market context.
 """
 
+
 import pandas as pd
-from datetime import datetime, timedelta
 from loguru import logger
 from tenacity import retry, stop_after_attempt, wait_fixed
 
 from adwork.db.connection import get_db
-
 
 # Default keywords matching our sample campaign product categories
 DEFAULT_KEYWORDS = [

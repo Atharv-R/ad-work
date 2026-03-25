@@ -31,12 +31,12 @@ Usage:
     metrics = model.evaluate(X_test, y_test)
 """
 
-import pandas as pd
-import numpy as np
 from pathlib import Path
+
+import numpy as np
+import pandas as pd
 from loguru import logger
 from pydantic import BaseModel, Field
-
 
 # ─── Column Definitions ──────────────────────────────
 
@@ -366,13 +366,12 @@ class CTRModel:
         - Calibration curve data (for plotting)
         - Feature importance (for interpretability)
         """
-        from sklearn.metrics import (
-            roc_auc_score,
-            log_loss,
-            average_precision_score,
-        )
-
         from sklearn.calibration import calibration_curve
+        from sklearn.metrics import (
+            average_precision_score,
+            log_loss,
+            roc_auc_score,
+        )
 
         y_pred = self.predict_proba(X_test)
 

@@ -8,11 +8,10 @@ This avoids subprocess issues on Streamlit Cloud.
 Skips Google Trends (unreliable on cloud, and non-essential).
 """
 
-import numpy as np
-import pandas as pd
 from datetime import date, timedelta
-from loguru import logger
 
+import numpy as np
+from loguru import logger
 
 SEED = 42
 START_DATE = date(2025, 4, 1)

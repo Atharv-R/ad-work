@@ -2,7 +2,6 @@
 
 """Test bandit algorithms and optimization modules."""
 
-import pytest
 import numpy as np
 
 
@@ -120,8 +119,9 @@ def test_simulation_ts_beats_random():
 
 def test_bid_recommender():
     """Bid recommender should produce recommendations."""
-    import pandas as pd
     from datetime import date, timedelta
+
+    import pandas as pd
 
     from adwork.optimization.bid_recommender import BidRecommender
 
@@ -159,6 +159,7 @@ def test_bid_recommender():
 def test_budget_allocator():
     """Budget allocator should produce allocations."""
     import pandas as pd
+
     from adwork.optimization.budget_allocator import BudgetAllocator
 
     summary = pd.DataFrame({

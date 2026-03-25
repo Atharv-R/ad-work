@@ -1,0 +1,64 @@
+{
+  "current": {
+    "Meta - Prospecting (Lookalike)": 332.53,
+    "Google - Search (Laptops)": 329.94,
+    "Meta - Prospecting (Interest)": 271.43,
+    "Google - Search (Headphones)": 220.09,
+    "Google - Brand Search": 164.17,
+    "Amazon - Sponsored Brands": 163.58,
+    "Amazon - Sponsored Products (Manual)": 148.65,
+    "Meta - Remarketing": 145.87,
+    "Google - Shopping": 126.36,
+    "Amazon - Sponsored Products (Auto)": 87.36
+  },
+  "recommended": {
+    "Meta - Prospecting (Lookalike)": 40.6,
+    "Google - Search (Laptops)": 295.91,
+    "Meta - Prospecting (Interest)": 2.39,
+    "Google - Search (Headphones)": 95.12,
+    "Google - Brand Search": 297.1,
+    "Amazon - Sponsored Brands": 91.34,
+    "Amazon - Sponsored Products (Manual)": 298.7,
+    "Meta - Remarketing": 272.43,
+    "Google - Shopping": 299.49,
+    "Amazon - Sponsored Products (Auto)": 296.9
+  },
+  "shifts": [
+    {
+      "from_campaign": "Meta - Prospecting (Lookalike)",
+      "from_campaign_name": "Meta - Prospecting (Lookalike)",
+      "to_campaign": "Amazon - Sponsored Products (Auto)",
+      "to_campaign_name": "Amazon - Sponsored Products (Auto)",
+      "amount": 209.54,
+      "reasoning": "Shift $210/day from Meta - Prospecting (Lookalike) (ROAS 2.5x) to Amazon - Sponsored Products (Auto) (ROAS 25.9x). Thompson Sampling posterior indicates higher expected returns.",
+      "confidence": "high"
+    },
+    {
+      "from_campaign": "Meta - Prospecting (Interest)",
+      "from_campaign_name": "Meta - Prospecting (Interest)",
+      "to_campaign": "Google - Shopping",
+      "to_campaign_name": "Google - Shopping",
+      "amount": 173.13,
+      "reasoning": "Shift $173/day from Meta - Prospecting (Interest) (ROAS 0.9x) to Google - Shopping (ROAS 26.0x). Thompson Sampling posterior indicates higher expected returns.",
+      "confidence": "high"
+    },
+    {
+      "from_campaign": "Google - Search (Headphones)",
+      "from_campaign_name": "Google - Search (Headphones)",
+      "to_campaign": "Amazon - Sponsored Products (Manual)",
+      "to_campaign_name": "Amazon - Sponsored Products (Manual)",
+      "amount": 124.97,
+      "reasoning": "Shift $125/day from Google - Search (Headphones) (ROAS 5.2x) to Amazon - Sponsored Products (Manual) (ROAS 31.0x). Thompson Sampling posterior indicates higher expected returns.",
+      "confidence": "high"
+    },
+    {
+      "from_campaign": "Amazon - Sponsored Brands",
+      "from_campaign_name": "Amazon - Sponsored Brands",
+      "to_campaign": "Google - Brand Search",
+      "to_campaign_name": "Google - Brand Search",
+      "amount": 72.24,
+      "reasoning": "Shift $72/day from Amazon - Sponsored Brands (ROAS 4.9x) to Google - Brand Search (ROAS 31.2x). Thompson Sampling posterior indicates higher expected returns.",
+      "confidence": "high"
+    }
+  ]
+}

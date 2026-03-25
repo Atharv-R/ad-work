@@ -1,8 +1,7 @@
 """Tests for competitor data + NLP pipeline."""
 
-import os
-import pytest
 import pandas as pd
+import pytest
 
 # ── DB fixture (matches your existing test pattern) ─────────────────
 

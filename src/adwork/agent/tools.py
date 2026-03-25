@@ -8,21 +8,18 @@ These are deterministic — the graph decides WHEN to call them,
 the LLM decides WHAT TO DO with the results.
 """
 
+
 import pandas as pd
-from datetime import date, timedelta
-from loguru import logger
 
 from adwork.db.connection import get_db
 from adwork.db.queries import (
-    get_date_range,
-    get_kpis,
     get_all_campaigns,
     get_campaign_summary,
     get_daily_metrics_for_campaign,
+    get_date_range,
+    get_kpis,
     get_stored_forecasts,
     get_trends,
-    store_recommendations,
-    clear_recommendations,
 )
 
 

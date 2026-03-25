@@ -6,7 +6,6 @@ Reusable UI card components for the dashboard.
 
 import streamlit as st
 
-
 # Map action types to emoji and display name
 ACTION_DISPLAY = {
     "bid_adjustment": ("⬆️", "Bid Adjustment"),

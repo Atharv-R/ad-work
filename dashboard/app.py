@@ -21,11 +21,12 @@ Run with:
     uv run streamlit run dashboard/app.py
 """
 
-import streamlit as st
-import sys
-import pandas as pd
-from pathlib import Path
 import json
+import sys
+from pathlib import Path
+
+import pandas as pd
+import streamlit as st
 
 # --- Path setup (BEFORE any adwork imports) ---
 ROOT = Path(__file__).resolve().parent.parent
@@ -69,18 +70,18 @@ except Exception as e:
 try:
     from adwork.db.connection import get_db
     from adwork.db.queries import (
-        get_date_range,
-        get_kpis_comparison,
-        get_daily_spend_by_platform,
-        get_daily_roas,
+        get_all_campaigns,
         get_campaign_summary,
+        get_daily_metrics_for_campaign,
+        get_daily_roas,
+        get_daily_spend_by_platform,
+        get_date_range,
+        get_forecast_summary,
+        get_kpis_comparison,
         get_trends,
-        get_all_campaigns,               
-        get_daily_metrics_for_campaign,   
         has_data,
-        has_forecasts,                    
-        get_forecast_summary,             
-        store_forecast_results,           
+        has_forecasts,
+        store_forecast_results,
     )
     db = get_db()
     db_connected = True
@@ -90,30 +91,30 @@ except Exception as e:
     db_error = str(e)
 
 from adwork.data.competitors import (
-        seed_competitor_data,
-        ingest_competitor_csv,
-    )
-from adwork.models.competitor_nlp import CompetitorAnalyzer
+    ingest_competitor_csv,
+    seed_competitor_data,
+)
 from adwork.db.queries import (
-        get_competitor_ads,
-        has_competitor_data,
-        get_competitor_advertisers,
-        store_cluster_results,
-        clear_competitor_data,
-    )
+    clear_competitor_data,
+    get_competitor_ads,
+    get_competitor_advertisers,
+    has_competitor_data,
+    store_cluster_results,
+)
+from adwork.models.competitor_nlp import CompetitorAnalyzer
 
 try:
-    from components.charts import (
-        spend_by_platform_chart,
-        roas_trend_chart,
-        campaign_performance_table,
-        trends_chart,
-        platform_pie_chart,
-    )
     from components.cards import (
-        recommendation_card,
         metric_card_row,
         no_data_message,
+        recommendation_card,
+    )
+    from components.charts import (
+        campaign_performance_table,
+        platform_pie_chart,
+        roas_trend_chart,
+        spend_by_platform_chart,
+        trends_chart,
     )
     components_loaded = True
     components_error = None
@@ -122,10 +123,10 @@ except Exception as e:
     components_error = str(e)
 
 from components.charts import (
-    competitor_cluster_scatter,
     competitor_cluster_bars,
-    competitor_strategy_heatmap,
+    competitor_cluster_scatter,
     competitor_platform_breakdown,
+    competitor_strategy_heatmap,
 )
 
 # --- Show import errors if anything failed ---
@@ -361,11 +362,11 @@ elif page == "📈 Forecasts":
         if generate_btn and selected_campaign_id:
             with st.spinner(f"Training forecast model for {campaign_options.get(selected_campaign_id, '')}..."):
                 try:
-                    from adwork.models.forecaster import DemandForecaster
                     from adwork.db.queries import (
                         get_daily_metrics_for_campaign,
                         store_forecast_results,
                     )
+                    from adwork.models.forecaster import DemandForecaster
 
                     hist = get_daily_metrics_for_campaign(selected_campaign_id)
                     trends_data = get_trends()
@@ -405,11 +406,11 @@ elif page == "📈 Forecasts":
 
             # Import chart functions
             from components.charts import (
-                forecast_chart,
                 backtest_chart,
-                weekly_seasonality_chart,
-                seasonality_heatmap,
                 evaluation_metrics_display,
+                forecast_chart,
+                seasonality_heatmap,
+                weekly_seasonality_chart,
             )
 
             # Evaluation metrics row
@@ -456,7 +457,7 @@ elif page == "📈 Forecasts":
 
         else:
             # No forecast generated yet — show stored forecasts or prompt
-            from adwork.db.queries import has_forecasts, get_forecast_summary
+            from adwork.db.queries import get_forecast_summary, has_forecasts
 
             if has_forecasts():
                 st.subheader("📋 Stored Forecasts")
@@ -508,8 +509,9 @@ elif page == "🎯 Recommendations":
                         result = run_daily_optimization()
 
                         # Also run simulation for charts
-                        from adwork.models.bandit import run_bandit_simulation
                         import json as json_lib
+
+                        from adwork.models.bandit import run_bandit_simulation
 
                         demo_camp = db.execute(
                             "SELECT * FROM campaigns WHERE platform='google' LIMIT 1"
@@ -632,10 +634,10 @@ elif page == "🎯 Recommendations":
                 sim_data = json.load(f)
 
             from components.charts import (
-                regret_curve_chart,
                 arm_selection_chart,
                 beliefs_chart,
                 budget_allocation_chart,
+                regret_curve_chart,
             )
 
             col_r, col_a = st.columns(2)

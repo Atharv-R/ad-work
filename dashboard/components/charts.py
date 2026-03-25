@@ -5,9 +5,9 @@ Plotly chart builders for the Ad-Work dashboard.
 Each function returns a Plotly figure ready for st.plotly_chart().
 """
 
+import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
-import pandas as pd
 
 
 def spend_by_platform_chart(df: pd.DataFrame) -> go.Figure:

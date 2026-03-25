@@ -32,14 +32,15 @@ Usage:
     # results has: forecast, backtest, evaluation, components
 """
 
-import pandas as pd
-import numpy as np
+# Suppress Prophet's verbose logging
+import logging
 from datetime import timedelta
+
+import numpy as np
+import pandas as pd
 from loguru import logger
 from pydantic import BaseModel, Field
 
-# Suppress Prophet's verbose logging
-import logging
 logging.getLogger("prophet").setLevel(logging.WARNING)
 logging.getLogger("cmdstanpy").setLevel(logging.WARNING)
 

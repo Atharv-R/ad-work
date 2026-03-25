@@ -2,7 +2,6 @@
 
 """Test CTR model pipeline."""
 
-import pytest
 import numpy as np
 
 
@@ -56,6 +55,7 @@ def test_preprocessor_transform_unseen():
 def test_full_train_evaluate_pipeline():
     """End-to-end: generate → preprocess → train → evaluate."""
     from sklearn.model_selection import train_test_split
+
     from adwork.models.ctr_model import CriteoDataLoader, CriteoPreprocessor, CTRModel
 
     df = CriteoDataLoader.generate_synthetic(n_rows=10_000)
@@ -102,6 +102,7 @@ def test_full_train_evaluate_pipeline():
 def test_predict_proba_range():
     """Predicted probabilities should be between 0 and 1."""
     from sklearn.model_selection import train_test_split
+
     from adwork.models.ctr_model import CriteoDataLoader, CriteoPreprocessor, CTRModel
 
     df = CriteoDataLoader.generate_synthetic(n_rows=5000)
