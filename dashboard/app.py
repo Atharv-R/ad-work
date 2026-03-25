@@ -116,18 +116,19 @@ try:
         spend_by_platform_chart,
         trends_chart,
     )
+    from components.charts import (
+    competitor_cluster_bars,
+    competitor_cluster_scatter,
+    competitor_platform_breakdown,
+    competitor_strategy_heatmap,
+    )
     components_loaded = True
     components_error = None
 except Exception as e:
     components_loaded = False
     components_error = str(e)
 
-from components.charts import (
-    competitor_cluster_bars,
-    competitor_cluster_scatter,
-    competitor_platform_breakdown,
-    competitor_strategy_heatmap,
-)
+
 
 # --- Show import errors if anything failed ---
 if not config_loaded or not db_connected or not components_loaded:
