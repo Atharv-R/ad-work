@@ -528,6 +528,56 @@ def seasonality_heatmap(historical_df: pd.DataFrame, metric: str = "clicks") -> 
 
     return fig
 
+def forecast_vs_actual_chart(df: pd.DataFrame, metric: str = "clicks") -> go.Figure:
+    """Scatter plot: predicted vs actual with perfect-prediction line."""
+    if df.empty:
+        return _empty_chart("No forecast vs actual data — run forecasts first")
+
+    fig = go.Figure()
+
+    # Perfect prediction line
+    min_val = min(df["actual_value"].min(), df["predicted_value"].min())
+    max_val = max(df["actual_value"].max(), df["predicted_value"].max())
+    padding = (max_val - min_val) * 0.05
+    line_range = [min_val - padding, max_val + padding]
+
+    fig.add_trace(go.Scatter(
+        x=line_range,
+        y=line_range,
+        mode="lines",
+        line=dict(dash="dash", color="gray", width=1),
+        name="Perfect Prediction",
+        showlegend=True,
+    ))
+
+    # Points coloured by campaign
+    campaigns = df["campaign_id"].unique()
+    colors = px.colors.qualitative.Set2
+    for i, cid in enumerate(campaigns):
+        subset = df[df["campaign_id"] == cid]
+        fig.add_trace(go.Scatter(
+            x=subset["actual_value"],
+            y=subset["predicted_value"],
+            mode="markers",
+            name=cid,
+            marker=dict(size=7, color=colors[i % len(colors)], opacity=0.7),
+            hovertemplate=(
+                "Actual: %{x:.0f}<br>"
+                "Predicted: %{y:.0f}<br>"
+                "Date: %{customdata[0]}"
+                "<extra>%{customdata[1]}</extra>"
+            ),
+            customdata=subset[["date", "campaign_id"]].values,
+        ))
+
+    fig.update_layout(
+        title=f"Predicted vs Actual — {metric.title()}",
+        xaxis_title=f"Actual {metric.title()}",
+        yaxis_title=f"Predicted {metric.title()}",
+        height=450,
+        template="plotly_white",
+    )
+    return fig
 
 def evaluation_metrics_display(evaluation: dict) -> dict:
     """

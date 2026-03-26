@@ -434,3 +434,31 @@ def clear_competitor_data() -> None:
     conn = get_db()
     conn.execute("DELETE FROM competitor_ads")
     conn.execute("DELETE FROM competitor_clusters")
+
+def get_forecast_vs_actual(metric: str = "clicks") -> pd.DataFrame:
+    """Join stored forecasts with actual daily metrics for overlapping dates."""
+    conn = get_db()
+    col_map = {
+        "clicks": "clicks",
+        "conversions": "conversions",
+        "spend": "spend",
+        "revenue": "revenue",
+    }
+    actual_col = col_map.get(metric, "clicks")
+
+    df = conn.execute(f"""
+        SELECT
+            f.campaign_id,
+            f.forecast_date AS date,
+            f.predicted_value,
+            f.lower_bound,
+            f.upper_bound,
+            m.{actual_col} AS actual_value
+        FROM forecasts f
+        JOIN daily_metrics m
+            ON f.campaign_id = m.campaign_id
+            AND f.forecast_date = m.date
+        WHERE f.metric = ?
+        ORDER BY f.forecast_date
+    """, [metric]).fetchdf()
+    return df

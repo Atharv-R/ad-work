@@ -115,6 +115,7 @@ try:
         competitor_cluster_scatter,
         competitor_platform_breakdown,
         competitor_strategy_heatmap,
+        forecast_vs_actual_chart,
         platform_pie_chart,
         roas_trend_chart,
         spend_by_platform_chart,
@@ -281,7 +282,25 @@ if page == "📊 Overview":
 
         with col_future:
             st.markdown("#### 🔮 Predicted vs Actual")
-            st.info("Forecast comparison will appear after Phase 2.")
+            
+            # ── Predicted vs Actual ─────────────────────────────
+            from adwork.db.queries import get_forecast_vs_actual, has_forecasts
+
+            if has_forecasts():
+                fva_metric = st.selectbox(
+                    "Metric", ["clicks", "conversions", "spend", "revenue"],
+                    key="fva_metric",
+                )
+                fva_df = get_forecast_vs_actual(fva_metric)
+                if not fva_df.empty:
+                    st.plotly_chart(
+                        forecast_vs_actual_chart(fva_df, fva_metric),
+                        use_container_width=True,
+                    )
+                else:
+                    st.info("Forecasts exist but no overlapping actual data yet.")
+            else:
+                st.info("Run forecasts from the 📈 Forecasts page to see predicted vs actual.")
 
         st.divider()
 
